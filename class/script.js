@@ -71,5 +71,5 @@ function rsc(specifiedElement, show, creq) { //show clicked-on text
 
 function rtli() {
     sessionStorage.clear();
-    window.location.href = "pw.html";
+    window.location.href = "../pw.html";
 }
