@@ -22,7 +22,7 @@ var csign = document.getElementById("csgn");
 var pwd = document.getElementById("pwd");
 var pbtn = document.getElementById("fbt");
 
-function pullcred() { //function called (no arguments) by retcred button on pw.html
+function pullcred() { //function called (no arguments) by retcred button on source index.html
     let callsignAsString = csign.value; //localization of the username value
     let passwordAsString = pwd.value; //localization of the password value
 
