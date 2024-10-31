@@ -1,4 +1,4 @@
-Double click 'pw.html'. should be apparent from there
+Double click 'index.html'. should be apparent from there
 universal edition
 10.24.24
 
