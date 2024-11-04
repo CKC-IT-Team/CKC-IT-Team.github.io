@@ -40,7 +40,7 @@ a:hover {
   color: #FD3333;
 }
 .rtp:hover:after {
-  content: " (RETURN TO personnel)";
+  content: " (RETURN TO PERSONNEL)";
 }
 .logout {
   color: #FF0000;
