@@ -3,7 +3,7 @@ var csigns = {
     "C937-IT-A": "(UniforM)", // yello
     "C9229-IT-LA": "Bitchin8675309", // b. bashford
     "C8787-IT": "Hawktuah18", // l. avery-quinn
-    "X827105-P": "Baggles", // l. bowles
+    "M16-A": "Baggles", // l. bowles
     "X103916-P": "make something up", // m. nine
     "X662731-P": "Carbonic" // s. wang
 }; // "callsign": "password" //name, "cs": "pw" //nm, etc.
@@ -13,7 +13,7 @@ var cclrs = {
     "C937-IT-A": 1,
     "C9229-IT-LA": 5,
     "C8787-IT": 10,
-    "X827105-P": null, // to be determined by job assignment
+    "M16-A": 2,
     "X103916-P": null, // to be determined by job assignment
     "X662731-P": null // to be determined by job assignment
 }; // "callsign": numerical clrclv, etc. see script.js for nclrclv translations
