@@ -5,7 +5,8 @@ var csigns = {
     "C8787-IT": "Hawktuah18", // l. avery-quinn
     "M16-A": "Baggles", // l. bowles
     "X103916-P": "make something up", // m. nine
-    "X662731-P": "Carbonic" // s. wang
+    "X662731-P": "Carbonic", // s. wang
+    "X193467-P": "Penguin" //L. Chittum
 }; // "callsign": "password" //name, "cs": "pw" //nm, etc.
 
 var cclrs = {
@@ -15,7 +16,8 @@ var cclrs = {
     "C8787-IT": 10,
     "M16-A": 2,
     "X103916-P": null, // to be determined by job assignment
-    "X662731-P": null // to be determined by job assignment
+    "X662731-P": null, // to be determined by job assignment
+    "X193467-P": null // to be determined by job assignment
 }; // "callsign": numerical clrclv, etc. see script.js for nclrclv translations
 
 var csign = document.getElementById("csgn");
