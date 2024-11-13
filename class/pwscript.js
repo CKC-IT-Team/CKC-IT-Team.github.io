@@ -1,23 +1,23 @@
 var csigns = {
-    "Mg1-A": "CKC_Leader", // s. pilipovic
-    "C937-IT-A": "(UniforM)", // yello
-    "C9229-IT-LA": "Bitchin8675309", // b. bashford
-    "C8787-IT": "Hawktuah18", // l. avery-quinn
-    "M16-A": "Baggles", // l. bowles
-    "X103916-P": "make something up", // m. nine
-    "X662731-P": "Carbonic", // s. wang
-    "X193467-P": "Penguin" //L. Chittum
+    "Mg898502-A": "CKC_Leader", // s. pilipovic
+    "C981822-IT-A": "(UniforM)", // yello
+    "C977168-IT-LA": "Bitchin8675309", // b. bashford
+    "C1034772-IT": "Hawktuah18", // l. avery-quinn
+    "M1029077-A": "Baggles", // l. bowles
+    "X981668-P": "make something up", // m. nine
+    "X1073604-P": "Carbonic", // s. wang
+    "X972026-P": "Penguin" //L. Chittum
 }; // "callsign": "password" //name, "cs": "pw" //nm, etc.
 
 var cclrs = {
-    "Mg1-A": 1,
-    "C937-IT-A": 1,
-    "C9229-IT-LA": 5,
-    "C8787-IT": 10,
-    "M16-A": 2,
-    "X103916-P": null, // to be determined by job assignment
-    "X662731-P": null, // to be determined by job assignment
-    "X193467-P": null // to be determined by job assignment
+    "Mg898502-A": 1,
+    "C981822-IT-A": 1,
+    "C977168-IT-LA": 5,
+    "C1034772-IT": 10,
+    "M1029077-A": 2,
+    "X981668-P": null, // to be determined by job assignment
+    "X1073604-P": null, // to be determined by job assignment
+    "X972026-P": null // to be determined by job assignment
 }; // "callsign": numerical clrclv, etc. see script.js for nclrclv translations
 
 var csign = document.getElementById("csgn");
