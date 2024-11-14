@@ -1,3 +1,5 @@
+const AESutil = await import("./AESutil.java");
+
 var clrcident = document.getElementById("clrcident")
 var tblVisClear = document.getElementsByClassName("visclr")
 var visitCLR = false
@@ -55,10 +57,8 @@ function rsc(specifiedElement, show, creq) { //show clicked-on text
     if (show) {
         if ((clev <= creq) && (authorized == true)) {
             specifiedElement.style.color = "#008000";
-            import("./AESutil.java").then((AESutil) => {
-                specifiedElement.textContent = AESutil.decrypt("AES/CBC/PKCS5Padding", ckeys[creq], show);
-                specifiedElement.style.cursor = "text";
-            });
+            specifiedElement.textContent = AESutil.decrypt("AES/CBC/PKCS5Padding", ckeys[creq], show);
+            specifiedElement.style.cursor = "text";
         } else {
             if (authorized == false) {
                 specifiedElement.textContent = "[UNAUTHORIZED SESSION]";
