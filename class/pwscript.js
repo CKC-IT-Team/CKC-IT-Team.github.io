@@ -1,4 +1,4 @@
-import AESutil from "AESutil.java";
+const AESutil = await import("./AESutil.java");
 
 var csigns = {
     "Mg898502-A": "CKC_Leader", // s. pilipovic
