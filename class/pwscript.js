@@ -1,5 +1,3 @@
-var AESutil = import("./AESutil.java");
-
 var csigns = {
     "Mg898502-A": "CKC_Leader", // s. pilipovic
     "C981822-IT-A": "(UniforM)", // yello
