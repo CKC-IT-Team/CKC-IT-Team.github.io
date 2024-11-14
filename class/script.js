@@ -1,4 +1,4 @@
-const AESutil = await import("./AESutil.java");
+const AESutil = await import("./AESutil.js");
 
 var clrcident = document.getElementById("clrcident")
 var tblVisClear = document.getElementsByClassName("visclr")
