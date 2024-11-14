@@ -36,6 +36,8 @@ var clearance_dict = ["ALPHA", "BETA", "GAMMA", "DELTA", "EPSILON", "ZETA", "ETA
 
 var clev = sessionStorage.getItem("clrc"); //pull clearance
 
+var ckeys = sessionStorage.getItem("key"); //pull encryption keys
+
 var authorized = false;
 
 if (clearance_dict[(clearance_dict.length - clev)] != undefined) {
@@ -52,8 +54,8 @@ if (authorized == true) {
 function rsc(specifiedElement, show, creq) { //show clicked-on text
     if (show) {
         if ((clev <= creq) && (authorized == true)) {
-            specifiedElement.textContent = show;
             specifiedElement.style.color = "#008000";
+            specifiedElement.textContent = AESutil.decrypt("AES/CBC/PKCS5Padding", ckeys[creq], show);
             specifiedElement.style.cursor = "text";
         } else {
             if (authorized == false) {
