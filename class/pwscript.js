@@ -55,15 +55,13 @@ var csign = document.getElementById("csgn");
 var pwd = document.getElementById("pwd");
 
 function pullcred() { //function called (no arguments) by retcred button on source index.html
-    let defaultClr = pwd.style.backgroundColor; // default background color to revert to
-
     let callsignAsString = csign.value; //localization of the username value
     let passwordAsString = pwd.value; //localization of the password value
 
     if (csigns[callsignAsString]) { //is the callsign valid
         if (csigns[callsignAsString] == passwordAsString) { //is the password correct
-            pwd.style.backgroundColor = "rgb(0, 255, 0);";
-            csign.style.backgroundColor = "rgb(0, 255, 0);";
+            pwd.style = "background-color: rgb(0, 255, 0);";
+            csign.style = " background-color: rgb(0, 255, 0);";
             let clearanceLevel = cclrs[callsignAsString];
             sessionStorage.setItem("clrc", clearanceLevel); //set clearance
             for (var i = clearanceLevel + 1; i <= 24; i++) {
@@ -72,9 +70,9 @@ function pullcred() { //function called (no arguments) by retcred button on sour
             sessionStorage.setItem("key", clrctokeys); // store relevant decryption keys
             location.href = "unclass/index.html";
         } else {
-            pwd.style.backgroundColor = "rgb(255, 0, 0);";
+            pwd.style = " background-color: rgb(255, 0, 0);";
         }
     } else {
-        csign.style.backgroundColor = "rgb(255, 0, 0);";
+        csign.style = "background-color: rgb(255, 0, 0);";
     }
 }
