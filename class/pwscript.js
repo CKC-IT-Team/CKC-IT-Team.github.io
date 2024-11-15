@@ -75,4 +75,6 @@ function pullcred() { //function called (no arguments) by retcred button on sour
     } else {
         csign.style = "background-color: rgb(255, 0, 0);";
     }
+    csign.value = ""
+    pwd.value = ""
 }
