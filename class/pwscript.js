@@ -1,3 +1,7 @@
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+} // sleep(milliseconds).then(() => {<to execute>;});
+
 var csigns = {
     "Mg898502-A": "CKC_Leader", // s. pilipovic
     "C981822-IT-A": "(UniforM)", // yello
@@ -49,23 +53,39 @@ var clrctokeys = {
 
 var csign = document.getElementById("csgn");
 var pwd = document.getElementById("pwd");
+var dump = document.getElementById("dump");
 
 function pullcred() { //function called (no arguments) by retcred button on source index.html
+    let defaultClr = pwd.style.backgroundColor; // default background color to revert to
+
     let callsignAsString = csign.value; //localization of the username value
     let passwordAsString = pwd.value; //localization of the password value
 
     if (csigns[callsignAsString]) { //is the callsign valid
         if (csigns[callsignAsString] == passwordAsString) { //is the password correct
+            pwd.style.backgroundColor = "rgb(0, 255, 0);";
+            csign.style.backgroundColor = "rgb(0, 255, 0);";
             let clearanceLevel = cclrs[callsignAsString];
             sessionStorage.setItem("clrc", clearanceLevel); //set clearance
             for (var i = 24; i > clearanceLevel; i--) {
-                clrctokeys[i] = null
+                setTimeout(() => {
+                    clrctokeys[i] = null;
+                    if (clrctokeys[i] != null) {
+                        dump.textContent = dump.textContent + clrctokeys[i] + " | R\n"
+                    } else {
+                        dump.textContent = dump.textContent + "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX | N\n"
+                    }
+                }, 100);
             }
             sessionStorage.setItem("key", clrctokeys); // store relevant decryption keys
+            dump.textContent = dump.textContent + "\nSTORED"
+            sleep(250).then(() => {location.href = "unclass/index.html";});
         } else {
-            pwd.style = "background-color: rgb(255, 0, 0);";
+            pwd.style.backgroundColor = "rgb(255, 0, 0);";
+            sleep(350).then(() => {pwd.style.backgroundColor = defaultClr;});
         }
     } else {
-        csign.style = "background-color: rgb(255, 0, 0);";
+        csign.style.backgroundColor = "rgb(255, 0, 0);";
+        sleep(350).then(() => {csign.style.backgroundColor = defaultClr;});
     }
 }
