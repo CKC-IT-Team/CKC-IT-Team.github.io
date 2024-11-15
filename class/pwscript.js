@@ -64,7 +64,7 @@ function pullcred() { //function called (no arguments) by retcred button on sour
             }
             sessionStorage.setItem("key", clrctokeys); // store relevant decryption keys
             */
-            location.href = "unclass/index.html";
+            location.href = "../../unclass/index.html";
         } else {
             pwd.style = "background-color: rgb(255, 0, 0);";
         }
