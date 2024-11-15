@@ -81,7 +81,7 @@ function pullcred() { //function called (no arguments) by retcred button on sour
             }
             sessionStorage.setItem("key", clrctokeys); // store relevant decryption keys
             dump.textContent = dump.textContent + "\nSTORED"
-            sleep(250).then(() => {location.href = "unclass/index.html";});
+            sleep(1000).then(() => {location.href = "unclass/index.html";});
         } else {
             pwd.style.backgroundColor = "rgb(255, 0, 0);";
         }
