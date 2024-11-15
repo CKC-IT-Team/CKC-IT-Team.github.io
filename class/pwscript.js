@@ -82,10 +82,8 @@ function pullcred() { //function called (no arguments) by retcred button on sour
             sleep(250).then(() => {location.href = "unclass/index.html";});
         } else {
             pwd.style.backgroundColor = "rgb(255, 0, 0);";
-            sleep(350).then(() => {pwd.style.backgroundColor = defaultClr;});
         }
     } else {
         csign.style.backgroundColor = "rgb(255, 0, 0);";
-        sleep(350).then(() => {csign.style.backgroundColor = defaultClr;});
     }
 }
