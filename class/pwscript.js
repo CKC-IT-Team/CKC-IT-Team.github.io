@@ -1,7 +1,3 @@
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-} // sleep(milliseconds).then(() => {<to execute>;});
-
 var csigns = {
     "Mg898502-A": "CKC_Leader", // s. pilipovic
     "C981822-IT-A": "(UniforM)", // yello
@@ -60,14 +56,14 @@ function pullcred() { //function called (no arguments) by retcred button on sour
 
     if (csigns[callsignAsString]) { //is the callsign valid
         if (csigns[callsignAsString] == passwordAsString) { //is the password correct
-            pwd.style = "background-color: rgb(0, 255, 0);";
-            csign.style = "background-color: rgb(0, 255, 0);";
             let clearanceLevel = cclrs[callsignAsString];
             sessionStorage.setItem("clrc", clearanceLevel); //set clearance
+            /*
             for (var i = clearanceLevel + 1; i <= 24; i++) {
                 clrctokeys[i] = null;
             }
             sessionStorage.setItem("key", clrctokeys); // store relevant decryption keys
+            */
             location.href = "unclass/index.html";
         } else {
             pwd.style = "background-color: rgb(255, 0, 0);";
