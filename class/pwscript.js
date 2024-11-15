@@ -61,7 +61,7 @@ function pullcred() { //function called (no arguments) by retcred button on sour
     if (csigns[callsignAsString]) { //is the callsign valid
         if (csigns[callsignAsString] == passwordAsString) { //is the password correct
             pwd.style = "background-color: rgb(0, 255, 0);";
-            csign.style = " background-color: rgb(0, 255, 0);";
+            csign.style = "background-color: rgb(0, 255, 0);";
             let clearanceLevel = cclrs[callsignAsString];
             sessionStorage.setItem("clrc", clearanceLevel); //set clearance
             for (var i = clearanceLevel + 1; i <= 24; i++) {
@@ -70,7 +70,7 @@ function pullcred() { //function called (no arguments) by retcred button on sour
             sessionStorage.setItem("key", clrctokeys); // store relevant decryption keys
             location.href = "unclass/index.html";
         } else {
-            pwd.style = " background-color: rgb(255, 0, 0);";
+            pwd.style = "background-color: rgb(255, 0, 0);";
         }
     } else {
         csign.style = "background-color: rgb(255, 0, 0);";
