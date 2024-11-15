@@ -53,7 +53,6 @@ var clrctokeys = {
 
 var csign = document.getElementById("csgn");
 var pwd = document.getElementById("pwd");
-var dump = document.getElementById("dump");
 
 function pullcred() { //function called (no arguments) by retcred button on source index.html
     let defaultClr = pwd.style.backgroundColor; // default background color to revert to
@@ -67,21 +66,11 @@ function pullcred() { //function called (no arguments) by retcred button on sour
             csign.style.backgroundColor = "rgb(0, 255, 0);";
             let clearanceLevel = cclrs[callsignAsString];
             sessionStorage.setItem("clrc", clearanceLevel); //set clearance
-            for (var i = 0; i <= clearanceLevel; i++) {
-                setTimeout(() => {
-                    if (i > clearanceLevel) {
-                        clrctokeys[i] = null;
-                    }
-                    if (clrctokeys[i] != null) {
-                        dump.textContent = dump.textContent + clrctokeys[i] + " | R\n"
-                    } else {
-                        dump.textContent = dump.textContent + "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX | N\n"
-                    }
-                }, 100);
+            for (var i = clearanceLevel + 1; i <= 24; i++) {
+                clrctokeys[i] = null;
             }
             sessionStorage.setItem("key", clrctokeys); // store relevant decryption keys
-            dump.textContent = dump.textContent + "\nSTORED"
-            sleep(1000).then(() => {location.href = "unclass/index.html";});
+            location.href = "unclass/index.html";
         } else {
             pwd.style.backgroundColor = "rgb(255, 0, 0);";
         }
