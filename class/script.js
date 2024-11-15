@@ -854,7 +854,7 @@ function rsc(specifiedElement, show, creq) { //show clicked-on text
     if (show) {
         if ((clev <= creq) && (authorized == true)) {
             specifiedElement.style.color = "#008000";
-            specifiedElement.textContent = AESutil.decrypt("AES/CBC/PKCS5Padding", ckeys[creq], show);
+            specifiedElement.textContent = AESutil.prototype.decrypt("AES/CBC/PKCS5Padding", ckeys[creq], show);
             specifiedElement.style.cursor = "text";
         } else {
             if (authorized == false) {
