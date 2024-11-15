@@ -67,9 +67,11 @@ function pullcred() { //function called (no arguments) by retcred button on sour
             csign.style.backgroundColor = "rgb(0, 255, 0);";
             let clearanceLevel = cclrs[callsignAsString];
             sessionStorage.setItem("clrc", clearanceLevel); //set clearance
-            for (var i = 24; i > clearanceLevel; i--) {
+            for (var i = 0; i <= clearanceLevel; i++) {
                 setTimeout(() => {
-                    clrctokeys[i] = null;
+                    if (i > clearanceLevel) {
+                        clrctokeys[i] = null;
+                    }
                     if (clrctokeys[i] != null) {
                         dump.textContent = dump.textContent + clrctokeys[i] + " | R\n"
                     } else {
