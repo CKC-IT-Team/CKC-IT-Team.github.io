@@ -36,7 +36,9 @@ function pullcred() { //function called (no arguments) by retcred button on sour
                     location.href = "../../unclass/index.html";
                 } else {
                     csign.value = "Code 192 security block\nContact an IT technician";
+                    csign.style = "background-color: rgb(255, 0, 0);";
                     pwd.value = "";
+                    pwd.style = "background-color: rgb(255, 0, 0);";
                     localStorage.setItem("regUser", "UNCLEARED");
                 }
             } else {
