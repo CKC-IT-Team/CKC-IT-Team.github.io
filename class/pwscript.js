@@ -1,3 +1,5 @@
+var easterEgg = false
+
 var csigns = {
     "Mg898502-A": "CKC_Leader", // s. pilipovic
     "C981822-IT-A": "(UniforM)", // yello
@@ -49,10 +51,16 @@ function pullcred() { //function called (no arguments) by retcred button on sour
         } else {
             pwd.style = "background-color: rgb(255, 0, 0);";
         }
-    } else if (callsignAsString == "{\\e; clean(win.localStorage key=\"regUser\"") {
-        localStorage.removeItem("regUser");
-        csign.value = "feed{registered(win.localStorage key(\"regUser\" value(null";
+    } else if (callsignAsString.includes("{\\e;") == true) {
+        let cmd = callsignAsString.replace("{\\e;", "")
         pwd.value = "";
+        if (cmd.includes(".setItem(\"clrc") || cmd.includes(".setItem(\'clrc")) {
+            csign.value == "I'm sorry, Dave. I'm afraid I can't do that.";
+            easterEgg = true;
+        } else {csign.value = eval(cmd)};
+    } else if (callsignAsString == "What's the problem?" && easterEgg == true) {
+        csign.value = "I think you know what the problem is just as well as I do.";
+        easterEgg = false;
     } else {
         csign.style = "background-color: rgb(255, 0, 0);";
         csign.value = "";
