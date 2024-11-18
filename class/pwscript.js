@@ -35,8 +35,8 @@ function pullcred() { //function called (no arguments) by retcred button on sour
                     sessionStorage.setItem("clrc", clearanceLevel); //set clearance
                     location.href = "../../unclass/index.html";
                 } else {
-                    csign.value = "Code 192 anticipated security block";
-                    pwd.value = "Contact an IT technician";
+                    csign.value = "Code 192 security block\nContact an IT technician";
+                    pwd.value = "";
                     localStorage.setItem("regUser", "UNCLEARED");
                 }
             } else {
