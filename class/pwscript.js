@@ -30,14 +30,30 @@ function pullcred() { //function called (no arguments) by retcred button on sour
     if (csigns[callsignAsString]) { //is the callsign valid
         if (csigns[callsignAsString] == passwordAsString) { //is the password correct
             let clearanceLevel = cclrs[callsignAsString];
-            sessionStorage.setItem("clrc", clearanceLevel); //set clearance
-            location.href = "../../unclass/index.html";
+            if (localStorage.getItem("regUser")) {
+                if (localStorage.getItem("regUser") == callsignAsString) {
+                    sessionStorage.setItem("clrc", clearanceLevel); //set clearance
+                    location.href = "../../unclass/index.html";
+                } else {
+                    csign.value = "Multiple login detected!";
+                    pwd.value = "Contact an IT admin";
+                    localStorage.setItem("regUser", "UNCLEARED");
+                }
+            } else {
+                sessionStorage.setItem("clrc", clearanceLevel); //set clearance
+                localStorage.setItem("regUser", callsignAsString); // set regular user
+                location.href = "../../unclass/index.html";
+            }
         } else {
             pwd.style = "background-color: rgb(255, 0, 0);";
         }
+    } else if (callsignAsString == "{\\e; clean(win.localStorage key=\"regUser\"") {
+        localStorage.removeItem("regUser");
+        csign.value = "feed{registered(win.localStorage key(\"regUser\" value(null";
+        pwd.value = "";
     } else {
         csign.style = "background-color: rgb(255, 0, 0);";
+        csign.value = "";
+        pwd.value = "";
     }
-    csign.value = ""
-    pwd.value = ""
 }
