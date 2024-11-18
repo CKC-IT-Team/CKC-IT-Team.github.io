@@ -67,7 +67,7 @@ function pullcred() { //function called (no arguments) by retcred button on sour
         easterEgg = false;
     } else {
         csign.style = "background-color: rgb(255, 0, 0);";
-        csign.value = "";
+        csign.value = "Invalid ID";
         pwd.value = "";
     }
 }
