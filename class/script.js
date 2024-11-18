@@ -63,7 +63,7 @@ function rsc(specifiedElement, show, creq) { //show clicked-on text
                 specifiedElement.style.color = "#FE1000";
                 specifiedElement.style.cursor = "not-allowed";
             } else {
-                specifiedElement.textContent = "[SPECIFIED CLEARANCE :" + clearance_dict[(creq - 1)] +": NOT FOUND - MAXIMUM :" + clearance_dict[(clearance_dict.length - clev)] + ": AUTHORIZED]";
+                specifiedElement.textContent = "[CLEARANCE :" + clearance_dict[(clearance_dict.length - clev)] + ": UNDER REQUIRED : " + clearance_dict[(clearance_dict.length - creq)] + "]";
                 specifiedElement.style.color = "#FE1000";
                 specifiedElement.style.cursor = "not-allowed";
             }
@@ -72,6 +72,6 @@ function rsc(specifiedElement, show, creq) { //show clicked-on text
 }
 
 function rtli() {
-    sessionStorage.clear();
+    sessionStorage.removeItem("clrc");
     window.location.href = "../index.html";
 }
