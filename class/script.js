@@ -1,7 +1,3 @@
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-} // sleep(milliseconds).then(() => {<to execute>;});
-
 var clrcident = document.getElementById("clrcident")
 var tblVisClear = document.getElementsByClassName("visclr")
 var visitCLR = false
