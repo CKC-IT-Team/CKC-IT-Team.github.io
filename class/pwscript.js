@@ -55,11 +55,15 @@ function pullcred() { //function called (no arguments) by retcred button on sour
         let cmd = callsignAsString.replace("{\\e;", "")
         pwd.value = "";
         if (cmd.includes(".setItem(\"clrc") || cmd.includes(".setItem(\'clrc")) {
-            csign.value == "I'm sorry, Dave. I'm afraid I can't do that.";
+            csign.value = "I'm sorry, Dave. I'm afraid I can't do that.";
+            pwd.style = "background-color: rgb(255, 255, 0);";
+            csign.style = "background-color: rgb(255, 255, 0);";
             easterEgg = true;
         } else {csign.value = eval(cmd)};
     } else if (callsignAsString == "What's the problem?" && easterEgg == true) {
         csign.value = "I think you know what the problem is just as well as I do.";
+        pwd.style = "background-color: rgb(255, 0, 0);";
+        csign.style = "background-color: rgb(255, 0, 0);";
         easterEgg = false;
     } else {
         csign.style = "background-color: rgb(255, 0, 0);";
