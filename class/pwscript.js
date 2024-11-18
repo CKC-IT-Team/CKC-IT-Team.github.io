@@ -1,4 +1,6 @@
 var easterEgg = false
+var timesWrong = 0
+var maxTimesWrong = 1
 
 var csigns = {
     "Mg898502-A": "CKC_Leader", // s. pilipovic
@@ -32,24 +34,38 @@ function pullcred() { //function called (no arguments) by retcred button on sour
     if (csigns[callsignAsString]) { //is the callsign valid
         if (csigns[callsignAsString] == passwordAsString) { //is the password correct
             let clearanceLevel = cclrs[callsignAsString];
-            if (localStorage.getItem("regUser")) {
-                if (localStorage.getItem("regUser") == callsignAsString) {
-                    sessionStorage.setItem("clrc", clearanceLevel); //set clearance
-                    location.href = "../../unclass/index.html";
+            if ((timesWrong <= maxTimesWrong && localStorage.getItem("suspect") == null)) {
+                if (localStorage.getItem("regUser")) {
+                    if (localStorage.getItem("regUser") == callsignAsString) {
+                        sessionStorage.setItem("clrc", clearanceLevel); //set clearance
+                        location.href = "../../unclass/index.html";
+                    } else {
+                        csign.value = "Code 192 security block\nContact an IT technician";
+                        csign.style = "background-color: rgb(255, 255, 0);";
+                        pwd.value = "";
+                        pwd.style = "background-color: rgb(255, 255, 0);";
+                        localStorage.setItem("regUser", "UNCLEARED");
+                    }
                 } else {
-                    csign.value = "Code 192 security block\nContact an IT technician";
-                    csign.style = "background-color: rgb(255, 255, 0);";
-                    pwd.value = "";
-                    pwd.style = "background-color: rgb(255, 255, 0);";
-                    localStorage.setItem("regUser", "UNCLEARED");
+                    sessionStorage.setItem("clrc", clearanceLevel); //set clearance
+                    localStorage.setItem("regUser", callsignAsString); // set regular user
+                    location.href = "../../unclass/index.html";
                 }
             } else {
-                sessionStorage.setItem("clrc", clearanceLevel); //set clearance
-                localStorage.setItem("regUser", callsignAsString); // set regular user
-                location.href = "../../unclass/index.html";
+                localStorage.setItem("suspect", true);
+                pwd.style = "background-color: rgb(255, 0, 0);";
+                csign.value = "Password incorrect too many times.\nContact an IT technician.";
+                pwd.value = "";
             }
         } else {
             pwd.style = "background-color: rgb(255, 0, 0);";
+            timesWrong = timesWrong + 1
+            if (timesWrong > maxTimesWrong) {
+                localStorage.setItem("suspect", true);
+                pwd.style = "background-color: rgb(255, 0, 0);";
+                csign.value = "Password incorrect too many times.\nContact an IT technician.";
+                pwd.value = "";
+            };
         }
     } else if (callsignAsString.includes("{\\e;") == true) {
         let cmd = callsignAsString.replace("{\\e;", "")
