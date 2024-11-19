@@ -75,7 +75,7 @@ function pullcred() { //function called (no arguments) by retcred button on sour
             pwd.style = "background-color: rgb(255, 255, 0);";
             csign.style = "background-color: rgb(255, 255, 0);";
             easterEgg = true;
-        } else {eval(cmd)};
+        } else {csign.value = "{\\r;" + eval(cmd)};
     } else if (callsignAsString == "What's the problem?" && easterEgg == true) {
         csign.value = "I think you know what the problem is just as well as I do.";
         pwd.style = "background-color: rgb(255, 0, 0);";
