@@ -24,6 +24,33 @@ var cclrs = {
     "X972026-P": null // to be determined by job assignment
 }; // "callsign": numerical clrclv, etc. see script.js for nclrclv translations
 
+var binCipherParamsPerCLRC = {
+    1: {"flipInterval":2, "shiftInterval":6},
+    2: {"flipInterval":4, "shiftInterval":3},
+    3: {"flipInterval":5, "shiftInterval":1},
+    4: {"flipInterval":3, "shiftInterval":0},
+    5: {"flipInterval":1, "shiftInterval":2},
+    6: {"flipInterval":10, "shiftInterval":4},
+    7: {"flipInterval":7, "shiftInterval":3},
+    8: {"flipInterval":8, "shiftInterval":8},
+    9: {"flipInterval":4, "shiftInterval":2},
+    10: {"flipInterval":9, "shiftInterval":3},
+    11: {"flipInterval":2, "shiftInterval":1},
+    12: {"flipInterval":1, "shiftInterval":6},
+    13: {"flipInterval":2, "shiftInterval":7},
+    14: {"flipInterval":9, "shiftInterval":6},
+    15: {"flipInterval":4, "shiftInterval":6},
+    16: {"flipInterval":5, "shiftInterval":6},
+    17: {"flipInterval":3, "shiftInterval":6},
+    18: {"flipInterval":9, "shiftInterval":5},
+    19: {"flipInterval":3, "shiftInterval":2},
+    20: {"flipInterval":5, "shiftInterval":7},
+    21: {"flipInterval":6, "shiftInterval":6},
+    22: {"flipInterval":9, "shiftInterval":1},
+    23: {"flipInterval":4, "shiftInterval":7},
+    24: {"flipInterval":1, "shiftInterval":4}
+};
+
 var csign = document.getElementById("csgn");
 var pwd = document.getElementById("pwd");
 
@@ -49,6 +76,12 @@ function pullcred() { //function called (no arguments) by retcred button on sour
                 } else {
                     sessionStorage.setItem("clrc", clearanceLevel); //set clearance
                     localStorage.setItem("regUser", callsignAsString); // set regular user
+                    for (var i = 0; i <= 24; i++) {
+                        if (clearanceLevel > i) {
+                            binCipherParamsPerCLRC[i] = "";
+                        }
+                    }
+                    sessionStorage.setItem("key", binCipherParamsPerCLRC);
                     location.href = "../../unclass/index.html";
                 }
             } else {
