@@ -56,11 +56,8 @@ if (authorized == true) {
 var rscs = document.getElementsByClassName("rsc");
 
 for (i = 0; i <= document.getElementsByClassName("rsc").length; i++) {
-    let elementInQuestion = rscs[i];
-    
-    let data = elementInQuestion.prototype.substring(element.onclick.indexOf(","), element.onclick.indexOf(",", element.onclick.indexOf(",") + 1)).replace(" ", "").replace("/\'/g", "");
-
-    elementInQuestion.onclick = elementInQuestion.substring(0, element.onclick.indexOf(",") + 1) + "\'" + btoa(data) + "\'" + elementInQuestion.substring(element.onclick.indexOf(",") + data.length + 2, elementInQuestion.onclick.length);
+    let data = rscs[i].prototype.substring(element.onclick.indexOf(","), element.onclick.indexOf(",", element.onclick.indexOf(",") + 1)).replace(" ", "").replace("/\'/g", "");
+    rscs[i].onclick = rscs[i].substring(0, element.onclick.indexOf(",") + 1) + "\'" + btoa(data) + "\'" + rscs[i].substring(element.onclick.indexOf(",") + data.length + 2, rscs[i].onclick.length);
 }
 
 function rsc(specifiedElement, show, creq) { //show clicked-on text - show is cipheredBin
