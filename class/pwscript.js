@@ -24,6 +24,7 @@ var cclrs = {
     "X972026-P": null // to be determined by job assignment
 }; // "callsign": numerical clrclv, etc. see script.js for nclrclv translations
 
+/*
 var binCipherParamsPerCLRC = {
     1: {"flipInterval":2, "shiftInterval":6},
     2: {"flipInterval":4, "shiftInterval":3},
@@ -50,6 +51,7 @@ var binCipherParamsPerCLRC = {
     23: {"flipInterval":4, "shiftInterval":7},
     24: {"flipInterval":1, "shiftInterval":4}
 };
+currently unused nonstandard ES keys */
 
 var csign = document.getElementById("csgn");
 var pwd = document.getElementById("pwd");

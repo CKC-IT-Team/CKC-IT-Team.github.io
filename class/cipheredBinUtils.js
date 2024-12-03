@@ -1,3 +1,4 @@
+/*
 function toCipheredBin(bin, binCipherParams) {
     var cipheredBin = bin;
     for (let i = 0; i < bin.length; i++) {
@@ -51,3 +52,4 @@ function fromCipheredBin(cipheredBin, binCipherParams) {
     }
     return bin
 }
+currently unused nonstandard ES */
