@@ -55,7 +55,7 @@ if (authorized == true) {
 
 var rscs = document.getElementsByClassName("rsc");
 
-for (var i = 0; i < document.getElementsByClassName("rsc").length; i++) {
+for (var i = 0; i < rscs.length; i++) {
     let data = rscs[i].prototype.substring(element.onclick.indexOf(","), element.onclick.indexOf(",", element.onclick.indexOf(",") + 1)).replace(" ", "").replace("/\'/g", "");
     rscs[i].onclick = rscs[i].substring(0, element.onclick.indexOf(",") + 1) + "\'" + btoa(data) + "\'" + rscs[i].substring(element.onclick.indexOf(",") + data.length + 2, rscs[i].onclick.length);
 }
