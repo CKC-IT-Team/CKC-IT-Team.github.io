@@ -78,12 +78,14 @@ function pullcred() { //function called (no arguments) by retcred button on sour
                 } else {
                     sessionStorage.setItem("clrc", clearanceLevel); //set clearance
                     localStorage.setItem("regUser", callsignAsString); // set regular user
+                    /*
                     for (var i = 0; i <= 24; i++) {
                         if (clearanceLevel > i) {
                             binCipherParamsPerCLRC[i] = "";
                         }
                     }
                     sessionStorage.setItem("key", binCipherParamsPerCLRC);
+                    */
                     location.href = "../../unclass/index.html";
                 }
             } else {
