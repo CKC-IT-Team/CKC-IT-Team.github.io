@@ -67,6 +67,7 @@ function pullcred() { //function called (no arguments) by retcred button on sour
                 if (localStorage.getItem("regUser")) {
                     if (localStorage.getItem("regUser") == callsignAsString) {
                         sessionStorage.setItem("clrc", clearanceLevel); //set clearance
+                        sessionStorage.setItem("protocol", "atob"); // set protocol
                         location.href = "../../unclass/index.html";
                     } else {
                         csign.value = "Code 192 security block\nContact an IT technician";
@@ -78,6 +79,7 @@ function pullcred() { //function called (no arguments) by retcred button on sour
                 } else {
                     sessionStorage.setItem("clrc", clearanceLevel); //set clearance
                     localStorage.setItem("regUser", callsignAsString); // set regular user
+                    sessionStorage.setItem("protocol", "atob"); // set protocol
                     /*
                     for (var i = 0; i <= 24; i++) {
                         if (clearanceLevel > i) {

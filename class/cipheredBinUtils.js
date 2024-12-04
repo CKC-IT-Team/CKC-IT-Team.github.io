@@ -52,4 +52,6 @@ function fromCipheredBin(cipheredBin, binCipherParams) {
     }
     return bin
 }
+
+export {toCipheredBin, setCharAt, toBin, fromCipheredBin}
 currently unused nonstandard ES */

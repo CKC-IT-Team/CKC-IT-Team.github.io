@@ -38,7 +38,8 @@ var clearance_dict = ["ALPHA", "BETA", "GAMMA", "DELTA", "EPSILON", "ZETA", "ETA
 
 var clev = sessionStorage.getItem("clrc"); //pull clearance
 
-var ckeys = sessionStorage.getItem("key"); //pull encryption keys
+// var ckeys = sessionStorage.getItem("key"); //pull encryption keys
+var protocol = sessionStorage.getItem("protocol"); // pull protocol
 
 var authorized = false;
 
@@ -61,19 +62,34 @@ for (var i = 0; i < rscs.length; i++) {
 }
 manually btoa for a hot second */
 
-function rsc(specifiedElement, show, creq) { //show clicked-on text - show is cipheredBin
+var maxTimeout = 2;
+function attemptRSC(timeout) {
+    let tO = null;
+    if (timeout) {tO = timeout;} else {tO = 0;}
+    specifiedElement.style.color = "#008000";
+    specifiedElement.style.cursor = "text";
+    try {
+        specifiedElement.textContent = eval(protocol + "(" + show + ");");
+    } catch (err) {
+        specifiedElement.textContent = "{\\r;" + err;
+        specifiedElement.style.cursor = "not-allowed";
+        specifiedElement.style.color = "#FE1000";
+        tO++
+        if (tO <= maxTimeout) {attemptRSC(tO);}
+    }
+}
+
+function rsc(specifiedElement, show, creq) { //show clicked-on text
     if (show) {
         if ((clev <= creq) && (authorized == true)) {
-            specifiedElement.style.color = "#008000";
-            specifiedElement.textContent = atob(show);
-            specifiedElement.style.cursor = "text";
+            attemptRSC();
         } else {
             if (authorized == false) {
                 specifiedElement.textContent = "[UNAUTHORIZED SESSION]";
                 specifiedElement.style.color = "#FE1000";
                 specifiedElement.style.cursor = "not-allowed";
             } else {
-                specifiedElement.textContent = "[CLEARANCE :" + clearance_dict[(clearance_dict.length - clev)] + ": UNDER REQUIRED : " + clearance_dict[(clearance_dict.length - creq)] + "]";
+                specifiedElement.textContent = "[" + clearance_dict[(clearance_dict.length - clev)] + " < " + clearance_dict[(clearance_dict.length - creq)] + "]";
                 specifiedElement.style.color = "#FE1000";
                 specifiedElement.style.cursor = "not-allowed";
             }
