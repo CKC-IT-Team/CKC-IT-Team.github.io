@@ -75,7 +75,7 @@ function attemptRSC(timeout, spec, specShow) {
         spec.style.cursor = "not-allowed";
         spec.style.color = "#FE1000";
         tO++
-        if (tO <= maxTimeout) {attemptRSC(tO);}
+        if (tO <= maxTimeout) {attemptRSC(tO, spec, specShow);}
     }
 }
 
