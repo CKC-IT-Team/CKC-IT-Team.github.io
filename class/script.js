@@ -63,17 +63,17 @@ for (var i = 0; i < rscs.length; i++) {
 manually btoa for a hot second */
 
 var maxTimeout = 2;
-function attemptRSC(timeout) {
+function attemptRSC(timeout, spec) {
     let tO = null;
     if (timeout) {tO = timeout;} else {tO = 0;}
-    specifiedElement.style.color = "#008000";
-    specifiedElement.style.cursor = "text";
+    spec.style.color = "#008000";
+    spec.style.cursor = "text";
     try {
-        specifiedElement.textContent = eval(protocol + "(" + show + ");");
+        spec.textContent = eval(protocol + "(" + show + ");");
     } catch (err) {
-        specifiedElement.textContent = "{\\r;" + err;
-        specifiedElement.style.cursor = "not-allowed";
-        specifiedElement.style.color = "#FE1000";
+        spec.textContent = "{\\r;" + err;
+        spec.style.cursor = "not-allowed";
+        spec.style.color = "#FE1000";
         tO++
         if (tO <= maxTimeout) {attemptRSC(tO);}
     }
@@ -82,7 +82,7 @@ function attemptRSC(timeout) {
 function rsc(specifiedElement, show, creq) { //show clicked-on text
     if (show) {
         if ((clev <= creq) && (authorized == true)) {
-            attemptRSC();
+            attemptRSC(null, specifiedElement);
         } else {
             if (authorized == false) {
                 specifiedElement.textContent = "[UNAUTHORIZED SESSION]";
