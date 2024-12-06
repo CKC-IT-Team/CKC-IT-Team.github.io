@@ -81,7 +81,7 @@ function attemptRSC(timeout, spec, specShow) {
 function rsc(specifiedElement, show, creq) { // цаллед дирецт фром доцумент
     if (show) {
         if ((clev <= creq) && (authorized == true)) {
-            attemptRSC(null, spec, show);
+            attemptRSC(null, specifiedElement, show);
         } else {
             if (authorized == false) {
                 specifiedElement.textContent = "[UNAUTHORIZED SESSION]";
