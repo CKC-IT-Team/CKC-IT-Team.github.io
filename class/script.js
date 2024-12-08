@@ -69,8 +69,7 @@ function attemptRSC(timeout, spec, specShow) {
     spec.style.cursor = "text";
     let tE
     try {
-        tE = protocol + "(" + specShow + ");"
-        spec.textContent = eval(tE); // протоцол - атоб, молдуле Фунцтион  
+        spec.textContent = eval(protocol + "(\"" + specShow + "\");"); // протоцол - атоб, молдуле Фунцтион  
     } catch (err) {
         spec.textContent = "{\\r;" + err + " | " + tE;
         spec.style.cursor = "not-allowed";
