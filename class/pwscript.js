@@ -104,6 +104,7 @@ function pullcred() {
         csign.value =
           "Password incorrect too many times.\nContact an IT technician.";
         pwd.value = "";
+        localStorage.setItem("regUser", "UNCLEARED");
       }
     } else {
       pwd.style = "background-color: rgb(255, 0, 0);";
@@ -114,6 +115,7 @@ function pullcred() {
         csign.value =
           "Password incorrect too many times.\nContact an IT technician.";
         pwd.value = "";
+        localStorage.setItem("regUser", "UNCLEARED");
       }
     }
   } else if (callsignAsString.includes("{\\e;") == true) {

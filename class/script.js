@@ -1,5 +1,7 @@
 // import cipheredBinUtils from cipheredBinUtils.js
 
+if (localStorage.getItem("regUser") == "UNCLEARED") {location.href = }
+
 var clrcident = document.getElementById("clrcident");
 
 var clearance_dict = [
@@ -87,18 +89,13 @@ for (var i = 0; i < rscs.length; i++) {
 
 var maxTimeout = 2;
 function attemptRSC(timeout, spec, specShow) {
-  let tO = null;
-  if (timeout) {
-    tO = timeout;
-  } else {
-    tO = 0;
-  }
+  let tO = timeout || 0;
   spec.style.color = "#008000";
   spec.style.cursor = "text";
   try {
-    spec.textContent = eval(protocol + '("' + specShow + '");'); // протоцол - атоб, молдуле Фунцтион
+    spec.textContent = eval(`${protocol}(\"${specShow}\");`); // протоцол - атоб, молдуле Фунцтион
   } catch (err) {
-    spec.textContent = "{\\r;" + err;
+    spec.textContent = `{\\r;${err}`
     spec.style.cursor = "not-allowed";
     spec.style.color = "#FE1000";
     tO++;
