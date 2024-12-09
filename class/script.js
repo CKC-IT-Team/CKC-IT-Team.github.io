@@ -1,8 +1,6 @@
 // import cipheredBinUtils from cipheredBinUtils.js
 
 var clrcident = document.getElementById("clrcident")
-var tblVisClear = document.getElementsByClassName("visclr")
-var visitCLR = false
 
 var clearance_dict = ["ALPHA", "BETA", "GAMMA", "DELTA", "EPSILON", "ZETA", "ETA", "THETA", "IOTA", "KAPPA", "LAMBDA", "MU", "NU", "XI", "OMICRON", "PI", "RHO", "SIGMA", "TAU", "UPSILON", "PHI", "CHI", "PSI", "OMEGA"] // numerically, as stored in sessionStorage by key/value pair, 1 is omega and larger numbers correspond to lower clearances
 
