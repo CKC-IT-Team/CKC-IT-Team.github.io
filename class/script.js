@@ -1,8 +1,33 @@
 // import cipheredBinUtils from cipheredBinUtils.js
 
-var clrcident = document.getElementById("clrcident")
+var clrcident = document.getElementById("clrcident");
 
-var clearance_dict = ["ALPHA", "BETA", "GAMMA", "DELTA", "EPSILON", "ZETA", "ETA", "THETA", "IOTA", "KAPPA", "LAMBDA", "MU", "NU", "XI", "OMICRON", "PI", "RHO", "SIGMA", "TAU", "UPSILON", "PHI", "CHI", "PSI", "OMEGA"] // numerically, as stored in sessionStorage by key/value pair, 1 is omega and larger numbers correspond to lower clearances
+var clearance_dict = [
+  "ALPHA",
+  "BETA",
+  "GAMMA",
+  "DELTA",
+  "EPSILON",
+  "ZETA",
+  "ETA",
+  "THETA",
+  "IOTA",
+  "KAPPA",
+  "LAMBDA",
+  "MU",
+  "NU",
+  "XI",
+  "OMICRON",
+  "PI",
+  "RHO",
+  "SIGMA",
+  "TAU",
+  "UPSILON",
+  "PHI",
+  "CHI",
+  "PSI",
+  "OMEGA",
+]; // numerically, as stored in sessionStorage by key/value pair, 1 is omega and larger numbers correspond to lower clearances
 
 /*
 
@@ -41,15 +66,16 @@ var protocol = sessionStorage.getItem("protocol"); // фетцх протоцо�
 
 var authorized = false;
 
-if (clearance_dict[(clearance_dict.length - clev)] != undefined) {
-    authorized = true;
+if (clearance_dict[clearance_dict.length - clev] != undefined) {
+  authorized = true;
 }
 
 if (authorized == true) {
-    clrcident.textContent =  clev + " | " + clearance_dict[(clearance_dict.length - clev)];
+  clrcident.textContent =
+    clev + " | " + clearance_dict[clearance_dict.length - clev];
 } else {
-    clrcident.style.color = "#FF0000";
-    clrcident.textContent = "X | UNAUTHORIZED";
+  clrcident.style.color = "#FF0000";
+  clrcident.textContent = "X | UNAUTHORIZED";
 }
 /*
 var rscs = document.getElementsByClassName("rsc");
@@ -61,35 +87,47 @@ for (var i = 0; i < rscs.length; i++) {
 
 var maxTimeout = 2;
 function attemptRSC(timeout, spec, specShow) {
-    let tO = null;
-    if (timeout) {tO = timeout;} else {tO = 0;}
-    spec.style.color = "#008000";
-    spec.style.cursor = "text";
-    try {
-        spec.textContent = eval(protocol + "(\"" + specShow + "\");"); // протоцол - атоб, молдуле Фунцтион  
-    } catch (err) {
-        spec.textContent = "{\\r;" + err;
-        spec.style.cursor = "not-allowed";
-        spec.style.color = "#FE1000";
-        tO++
-        if (tO <= maxTimeout) {attemptRSC(tO, spec, specShow);}
+  let tO = null;
+  if (timeout) {
+    tO = timeout;
+  } else {
+    tO = 0;
+  }
+  spec.style.color = "#008000";
+  spec.style.cursor = "text";
+  try {
+    spec.textContent = eval(protocol + '("' + specShow + '");'); // протоцол - атоб, молдуле Фунцтион
+  } catch (err) {
+    spec.textContent = "{\\r;" + err;
+    spec.style.cursor = "not-allowed";
+    spec.style.color = "#FE1000";
+    tO++;
+    if (tO <= maxTimeout) {
+      attemptRSC(tO, spec, specShow);
     }
+  }
 }
 
-function rsc(specifiedElement, show, creq) { // цаллед дирецт фром доцумент
-    if (show) {
-        if ((clev <= creq) && (authorized == true)) {
-            attemptRSC(null, specifiedElement, show);
-        } else {
-            if (authorized == false) {
-                specifiedElement.textContent = "[UNAUTHORIZED SESSION]";
-                specifiedElement.style.color = "#FE1000";
-                specifiedElement.style.cursor = "not-allowed";
-            } else {
-                specifiedElement.textContent = "[" + clearance_dict[(clearance_dict.length - clev)] + " < " + clearance_dict[(clearance_dict.length - creq)] + "]";
-                specifiedElement.style.color = "#FE1000";
-                specifiedElement.style.cursor = "not-allowed";
-            }
-        }
+function rsc(specifiedElement, show, creq) {
+  // цаллед дирецт фром доцумент
+  if (show) {
+    if (clev <= creq && authorized == true) {
+      attemptRSC(null, specifiedElement, show);
+    } else {
+      if (authorized == false) {
+        specifiedElement.textContent = "[UNAUTHORIZED SESSION]";
+        specifiedElement.style.color = "#FE1000";
+        specifiedElement.style.cursor = "not-allowed";
+      } else {
+        specifiedElement.textContent =
+          "[" +
+          clearance_dict[clearance_dict.length - clev] +
+          " < " +
+          clearance_dict[clearance_dict.length - creq] +
+          "]";
+        specifiedElement.style.color = "#FE1000";
+        specifiedElement.style.cursor = "not-allowed";
+      }
     }
+  }
 }
