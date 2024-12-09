@@ -67,11 +67,10 @@ function attemptRSC(timeout, spec, specShow) {
     if (timeout) {tO = timeout;} else {tO = 0;}
     spec.style.color = "#008000";
     spec.style.cursor = "text";
-    let tE
     try {
         spec.textContent = eval(protocol + "(\"" + specShow + "\");"); // протоцол - атоб, молдуле Фунцтион  
     } catch (err) {
-        spec.textContent = "{\\r;" + err + " | " + tE;
+        spec.textContent = "{\\r;" + err;
         spec.style.cursor = "not-allowed";
         spec.style.color = "#FE1000";
         tO++
