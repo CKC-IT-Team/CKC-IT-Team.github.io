@@ -21,7 +21,7 @@ var cclrs = {
   "X972026-P": null, // to be determined by job assignment
 }; // "callsign": numerical clrclv, etc. see script.js for nclrclv translations
 var protocols = {
-  0:'throw new Error(\"No stored protocol\")',
+  0:'throw new Error(\"No stored protocol\");',
   1:'totalFlip',
   2:'totalFlip',
   3:'totalFlip',
