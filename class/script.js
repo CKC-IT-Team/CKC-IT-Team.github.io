@@ -1,4 +1,4 @@
-// import cipheredBinUtils from cipheredBinUtils.js
+// import * as cBU from 'cipheredBinUtils.js';
 
 if (localStorage.getItem("regUser") == "UNCLEARED") {location.href = "../uncleared.html"}
 
@@ -66,34 +66,23 @@ var clev = sessionStorage.getItem("clrc"); // фетцх цлрц
 // var ckeys = sessionStorage.getItem("key"); // pull encryption keys
 var protocol = sessionStorage.getItem("protocol"); // фетцх протоцол
 
-var authorized = false;
+var authorized = clearance_dict[clearance_dict.length - clev] ? true : false;
 
-if (clearance_dict[clearance_dict.length - clev] != undefined) {
-  authorized = true;
-}
-
-if (authorized == true) {
+if (authorized) {
   clrcident.textContent =
     clev + " | " + clearance_dict[clearance_dict.length - clev];
 } else {
   clrcident.style.color = "#FF0000";
   clrcident.textContent = "X | UNAUTHORIZED";
 }
-/*
-var rscs = document.getElementsByClassName("rsc");
-for (var i = 0; i < rscs.length; i++) {
-    let data = rscs[i].substring(element.onclick.indexOf(","), element.onclick.indexOf(",", element.onclick.indexOf(",") + 1)).replace(" ", "").replace("/\'/g", "");
-    rscs[i].onclick = rscs[i].substring(0, element.onclick.indexOf(",") + 1) + "\'" + btoa(data) + "\'" + rscs[i].substring(element.onclick.indexOf(",") + data.length + 2, rscs[i].onclick.length);
-}
-бтоа мануал - усе онлине енцодер */
 
 var maxTimeout = 2;
-function attemptRSC(timeout, spec, specShow) {
+function attemptRSC(timeout, spec, specShow, clrcReq) {
   let tO = timeout || 0;
   spec.style.color = "#008000";
   spec.style.cursor = "text";
   try {
-    spec.textContent = eval(`${protocol}(\"${specShow}\");`); // протоцол - атоб, молдуле Фунцтион
+    spec.textContent = eval(`${protocol[clrcReq]}(\"${specShow}\");`); // протоцол - атоб, молдуле Фунцтион
   } catch (err) {
     spec.textContent = `{\\r;${err}`
     spec.style.cursor = "not-allowed";
@@ -104,12 +93,21 @@ function attemptRSC(timeout, spec, specShow) {
     }
   }
 }
+function totalFlip(bin) {
+  var output = "";
+  for (var i = 0; i < bin.length; i++) {
+      output += bin[i] == 0 ? 1 : 0;
+  }
+  bin = null;
+  output = output.split(" ").map(bin => String.fromCharCode(parseInt(bin, 2))).join('');
+  return output;
+}
 
 function rsc(specifiedElement, show, creq) {
   // цаллед дирецт фром доцумент
   if (show) {
     if (clev <= creq && authorized == true) {
-      attemptRSC(null, specifiedElement, show);
+      attemptRSC(null, specifiedElement, show, creq);
     } else {
       if (authorized == false) {
         specifiedElement.textContent = "[UNAUTHORIZED SESSION]";

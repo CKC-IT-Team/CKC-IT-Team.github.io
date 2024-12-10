@@ -20,40 +20,38 @@ var cclrs = {
   "X1073604-P": null, // to be determined by job assignment
   "X972026-P": null, // to be determined by job assignment
 }; // "callsign": numerical clrclv, etc. see script.js for nclrclv translations
+var protocols = {
+  0:'throw new Error(\"No stored protocol\")',
+  1:totalFlip,
+  2:totalFlip,
+  3:totalFlip,
+  4:totalFlip,
+  5:totalFlip,
+  6:totalFlip,
+  7:totalFlip,
+  8:totalFlip,
+  9:totalFlip,
+  10:atob,
+  11:totalFlip,
+  12:atob,
+  13:totalFlip,
+  14:atob,
+  15:totalFlip,
+  16:atob,
+  17:totalFlip,
+  18:atob,
+  19:totalFlip,
+  20:'atob',
+  21:'atob',
+  22:'atob',
+  23:'atob',
+  24:'atob'
+};
 var cInfo = { csigns, cclrs };
 
 var easterEgg = false;
 var timesWrong = 0;
 var maxTimesWrong = 1;
-
-/*
-var binCipherParamsPerCLRC = {
-    1: {"flipInterval":2, "shiftInterval":6},
-    2: {"flipInterval":4, "shiftInterval":3},
-    3: {"flipInterval":5, "shiftInterval":1},
-    4: {"flipInterval":3, "shiftInterval":0},
-    5: {"flipInterval":1, "shiftInterval":2},
-    6: {"flipInterval":10, "shiftInterval":4},
-    7: {"flipInterval":7, "shiftInterval":3},
-    8: {"flipInterval":8, "shiftInterval":8},
-    9: {"flipInterval":4, "shiftInterval":2},
-    10: {"flipInterval":9, "shiftInterval":3},
-    11: {"flipInterval":2, "shiftInterval":1},
-    12: {"flipInterval":1, "shiftInterval":6},
-    13: {"flipInterval":2, "shiftInterval":7},
-    14: {"flipInterval":9, "shiftInterval":6},
-    15: {"flipInterval":4, "shiftInterval":6},
-    16: {"flipInterval":5, "shiftInterval":6},
-    17: {"flipInterval":3, "shiftInterval":6},
-    18: {"flipInterval":9, "shiftInterval":5},
-    19: {"flipInterval":3, "shiftInterval":2},
-    20: {"flipInterval":5, "shiftInterval":7},
-    21: {"flipInterval":6, "shiftInterval":6},
-    22: {"flipInterval":9, "shiftInterval":1},
-    23: {"flipInterval":4, "shiftInterval":7},
-    24: {"flipInterval":1, "shiftInterval":4}
-};
-currently unused nonstandard ES keys */
 
 var csign = document.getElementById("csgn");
 var pwd = document.getElementById("pwd");
@@ -75,7 +73,7 @@ function pullcred() {
         if (localStorage.getItem("regUser")) {
           if (localStorage.getItem("regUser") == callsignAsString) {
             sessionStorage.setItem("clrc", clearanceLevel); //set clearance
-            sessionStorage.setItem("protocol", "atob"); // set protocol
+            sessionStorage.setItem("protocol", protocols); // set protocol
             location.href = "../../unclass/index.html";
           } else {
             csign.value = "Code 192 security block\nContact an IT technician";
@@ -87,15 +85,7 @@ function pullcred() {
         } else {
           sessionStorage.setItem("clrc", clearanceLevel); //set clearance
           localStorage.setItem("regUser", callsignAsString); // set regular user
-          sessionStorage.setItem("protocol", "atob"); // set protocol
-          /*
-                    for (var i = 0; i <= 24; i++) {
-                        if (clearanceLevel > i) {
-                            binCipherParamsPerCLRC[i] = "";
-                        }
-                    }
-                    sessionStorage.setItem("key", binCipherParamsPerCLRC);
-                    */
+          sessionStorage.setItem("protocol", protocols); // set protocol
           location.href = "../../unclass/index.html";
         }
       } else {
