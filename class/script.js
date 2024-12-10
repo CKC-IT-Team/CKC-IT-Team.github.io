@@ -1,6 +1,6 @@
 // import cipheredBinUtils from cipheredBinUtils.js
 
-if (localStorage.getItem("regUser") == "UNCLEARED") {location.href = }
+if (localStorage.getItem("regUser") == "UNCLEARED") {location.href = "../uncleared.html"}
 
 var clrcident = document.getElementById("clrcident");
 
