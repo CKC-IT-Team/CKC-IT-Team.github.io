@@ -2,6 +2,9 @@
 
 if (localStorage.getItem("regUser") == "UNCLEARED") {location.href = "../uncleared.html"}
 
+// disables DarkReader extension - site dark by default
+const lock = document.createElement('meta');lock.name = 'darkreader-lock';document.head.appendChild(lock);
+
 var clrcident = document.getElementById("clrcident");
 
 var clearance_dict = [
