@@ -73,7 +73,9 @@ function pullcred() {
         if (localStorage.getItem("regUser")) {
           if (localStorage.getItem("regUser") == callsignAsString) {
             sessionStorage.setItem("clrc", clearanceLevel); //set clearance
-            sessionStorage.setItem("protocol", protocols); // set protocol
+            for (var i = 0; protocols.length; i++) {
+              sessionStorage.setItem("protocol" + toString(i), protocols[i]);
+            }
             location.href = "../../unclass/index.html";
           } else {
             csign.value = "Code 192 security block\nContact an IT technician";
@@ -85,7 +87,9 @@ function pullcred() {
         } else {
           sessionStorage.setItem("clrc", clearanceLevel); //set clearance
           localStorage.setItem("regUser", callsignAsString); // set regular user
-          sessionStorage.setItem("protocol", protocols); // set protocol
+          for (var i = 0; protocols.length; i++) {
+            sessionStorage.setItem("protocol" + toString(i), protocols[i]);
+          }
           location.href = "../../unclass/index.html";
         }
       } else {

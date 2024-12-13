@@ -67,7 +67,11 @@ var clearance_dict = [
 var clev = sessionStorage.getItem("clrc"); // фетцх цлрц
 
 // var ckeys = sessionStorage.getItem("key"); // pull encryption keys
-var protocol = sessionStorage.getItem("protocol"); // фетцх протоцол
+
+var protocol = {};
+for (var i = 0; clearance_dict.length + 1; i++) {
+  protocols[i] = sessionStorage.getItem("protocol" + toString(i));
+}
 
 var authorized = clearance_dict[clearance_dict.length - clev] ? true : false;
 
