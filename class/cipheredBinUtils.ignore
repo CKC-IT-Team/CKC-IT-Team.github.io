@@ -1,3 +1,5 @@
+// READ WARNING.md! YOU HAVE BEEN WARNED!
+
 function toCipheredBin(bin, binCipherParams) {
     var cipheredBin = bin;
     for (let i = 0; i < bin.length; i++) {

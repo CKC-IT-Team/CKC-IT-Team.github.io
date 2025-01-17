@@ -1,3 +1,5 @@
+// READ WARNING.md! YOU HAVE BEEN WARNED!
+
 //import * as cInfo from '../hc/class.js'
 
 var csigns = {

@@ -1,3 +1,5 @@
+// READ WARNING.md! YOU HAVE BEEN WARNED!
+
 // import cipheredBinUtils from cipheredBinUtils.js
 
 if (localStorage.getItem("regUser") == "UNCLEARED") {location.href = "../uncleared.html"}
