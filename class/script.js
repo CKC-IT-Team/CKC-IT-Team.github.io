@@ -59,12 +59,12 @@ var clearance_dict = [
 23 - beta
 24 - alpha
 
-цлеаранцес */
+clearances */
 
-var clev = sessionStorage.getItem("clrc"); // фетцх цлрц
+var clev = sessionStorage.getItem("clrc"); // fetch clrc
 
 // var ckeys = sessionStorage.getItem("key"); // pull encryption keys
-var protocol = sessionStorage.getItem("protocol"); // фетцх протоцол
+var protocol = sessionStorage.getItem("protocol"); // fetch protocol
 
 var authorized = false;
 
@@ -74,7 +74,7 @@ if (clearance_dict[clearance_dict.length - clev] != undefined) {
 
 if (authorized == true) {
   clrcident.textContent =
-    clev + " | " + clearance_dict[clearance_dict.length - clev] + "\nSIGNED ON: " + localStorage.getItem("regUser");
+    clev + " | " + clearance_dict[clearance_dict.length - clev] + " | SIGNED ON: " + localStorage.getItem("regUser");
 } else {
   clrcident.style.color = "#FF0000";
   clrcident.textContent = "X | UNAUTHORIZED";
@@ -85,7 +85,7 @@ for (var i = 0; i < rscs.length; i++) {
     let data = rscs[i].substring(element.onclick.indexOf(","), element.onclick.indexOf(",", element.onclick.indexOf(",") + 1)).replace(" ", "").replace("/\'/g", "");
     rscs[i].onclick = rscs[i].substring(0, element.onclick.indexOf(",") + 1) + "\'" + btoa(data) + "\'" + rscs[i].substring(element.onclick.indexOf(",") + data.length + 2, rscs[i].onclick.length);
 }
-депрецатед */
+this is deprecated. delete it soon */
 
 var maxTimeout = 2;
 function attemptRSC(timeout, spec, specShow) {
@@ -93,7 +93,7 @@ function attemptRSC(timeout, spec, specShow) {
   spec.style.color = "#008000";
   spec.style.cursor = "text";
   try {
-    spec.textContent = eval(`${protocol}(\"${specShow}\");`); // протоцол - атоб, молдуле Фунцтион
+    spec.textContent = eval(`${protocol}(\"${specShow}\");`); // protocol - atob, module function
   } catch (err) {
     spec.textContent = `{\\r;${err}`
     spec.style.cursor = "not-allowed";
@@ -106,7 +106,7 @@ function attemptRSC(timeout, spec, specShow) {
 }
 
 function rsc(specifiedElement, show, creq) {
-  // цаллед дирецт фром доцумент
+  // called direct from document
   if (show) {
     if (clev <= creq && authorized == true) {
       attemptRSC(null, specifiedElement, show);
