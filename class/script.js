@@ -74,7 +74,7 @@ if (clearance_dict[clearance_dict.length - clev] != undefined) {
 
 if (authorized == true) {
   clrcident.textContent =
-    clev + " | " + clearance_dict[clearance_dict.length - clev];
+    clev + " | " + clearance_dict[clearance_dict.length - clev] + "\nSIGNED ON: " + localStorage.getItem("regUser");
 } else {
   clrcident.style.color = "#FF0000";
   clrcident.textContent = "X | UNAUTHORIZED";
@@ -85,7 +85,7 @@ for (var i = 0; i < rscs.length; i++) {
     let data = rscs[i].substring(element.onclick.indexOf(","), element.onclick.indexOf(",", element.onclick.indexOf(",") + 1)).replace(" ", "").replace("/\'/g", "");
     rscs[i].onclick = rscs[i].substring(0, element.onclick.indexOf(",") + 1) + "\'" + btoa(data) + "\'" + rscs[i].substring(element.onclick.indexOf(",") + data.length + 2, rscs[i].onclick.length);
 }
-бтоа мануал - усе онлине енцодер */
+депрецатед */
 
 var maxTimeout = 2;
 function attemptRSC(timeout, spec, specShow) {
