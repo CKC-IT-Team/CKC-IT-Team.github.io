@@ -11,7 +11,6 @@ var csigns = {
   "X981668-P": "make something up", // m. nine
   "X1073604-P": "Carbonic", // s. wang
   "X972026-P": "Penguin", //L. Chittum
-  "EXPER": "ADMIN", // temp
 }; // "callsign": "password" //name, "cs": "pw" //nm, etc.
 var cclrs = {
   "Mg898502-A": 1,
@@ -22,7 +21,6 @@ var cclrs = {
   "X981668-P": null, // to be determined by job assignment
   "X1073604-P": null, // to be determined by job assignment
   "X972026-P": null, // to be determined by job assignment
-  "EXPER": 24,
 }; // "callsign": numerical clrclv, etc. see script.js for nclrclv translations
 var cInfo = { csigns, cclrs };
 
