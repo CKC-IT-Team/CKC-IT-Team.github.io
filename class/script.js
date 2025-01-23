@@ -4,7 +4,7 @@
 
 if (localStorage.getItem("regUser") == "UNCLEARED") {location.href = "../uncleared.html"}
 
-var clrcident = document.getElementById("clrcident");
+var clrcident = document.getElementById("clrcident"); //  get clearance ID in doc
 
 var clearance_dict = [
   "ALPHA",
@@ -30,7 +30,7 @@ var clearance_dict = [
   "PHI",
   "CHI",
   "PSI",
-  "OMEGA",
+  "OMEGA"
 ]; // numerically, as stored in sessionStorage by key/value pair, 1 is omega and larger numbers correspond to lower clearances
 
 /*
@@ -59,7 +59,7 @@ var clearance_dict = [
 21 - delta
 22 - gamma
 23 - beta
-24 - alpha
+24 - alpha  - baselevel
 
 clearances */
 
@@ -72,22 +72,13 @@ var authorized = false;
 
 if (clearance_dict[clearance_dict.length - clev] != undefined) {
   authorized = true;
-}
-
-if (authorized == true) {
   clrcident.textContent =
     clev + " | " + clearance_dict[clearance_dict.length - clev] + " | SIGNED ON: " + localStorage.getItem("regUser");
 } else {
   clrcident.style.color = "#FF0000";
   clrcident.textContent = "X | UNAUTHORIZED";
+  // location.href = "../uncleared.html" // handle for removal of unathorized viewership. disabled
 }
-/*
-var rscs = document.getElementsByClassName("rsc");
-for (var i = 0; i < rscs.length; i++) {
-    let data = rscs[i].substring(element.onclick.indexOf(","), element.onclick.indexOf(",", element.onclick.indexOf(",") + 1)).replace(" ", "").replace("/\'/g", "");
-    rscs[i].onclick = rscs[i].substring(0, element.onclick.indexOf(",") + 1) + "\'" + btoa(data) + "\'" + rscs[i].substring(element.onclick.indexOf(",") + data.length + 2, rscs[i].onclick.length);
-}
-this is deprecated. delete it soon */
 
 var maxTimeout = 2;
 function attemptRSC(timeout, spec, specShow) {
@@ -108,7 +99,7 @@ function attemptRSC(timeout, spec, specShow) {
 }
 
 function rsc(specifiedElement, show, creq) {
-  // called direct from document
+  // called directly from document
   if (show) {
     if (clev <= creq && authorized == true) {
       attemptRSC(null, specifiedElement, show);
@@ -121,12 +112,14 @@ function rsc(specifiedElement, show, creq) {
         specifiedElement.textContent =
           "[" +
           clearance_dict[clearance_dict.length - clev] +
-          " < " +
+          " DENIED FOR " +
           clearance_dict[clearance_dict.length - creq] +
           "]";
         specifiedElement.style.color = "#FE1000";
         specifiedElement.style.cursor = "not-allowed";
       }
     }
+  } else {
+    specifiedElement.textContent = "CODE 1: field _s " + show;
   }
 }
