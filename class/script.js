@@ -129,19 +129,19 @@ function identMO(_, fTS) {
   // called directly from document
   fileTS = fTS;
 };
+/*
 window.addEventListener('beforeunload', () => {
   sessionStorage.removeItem("clrc");
 });
+*/
 window.addEventListener('keypress', (event) => {
   if (event.key == "w") {
-    if (event.shiftKey) {
-      if (location.href.includes("personnel-files")) {
-        location.href = "../unclass/personnel.html";
-      } else if (location.href.includes("divisions/")) {
-        location.href = "../unclass/divisions.html";
-      } else if (location.href.includes("unclass/index.html")) {
-        location.href = "../index.html";
-      };
+    if (location.href.includes("personnel-files")) {
+      location.href = "../unclass/personnel.html";
+    } else if (location.href.includes("divisions/")) {
+      location.href = "../unclass/divisions.html";
+    } else if (location.href.includes("unclass/index.html")) {
+      location.href = "../index.html";
     };
   };
   if (fileTS) {
