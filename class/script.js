@@ -126,6 +126,7 @@ function rsc(specifiedElement, show, creq) {
   }
 }
 function identMO(_, fTS) {
+  if (!_) {return}
   // called directly from document
   fileTS = fTS;
 };
