@@ -129,7 +129,7 @@ function pullcred() {
       csign.style = "background-color: rgb(255, 255, 0);";
       easterEgg = true;
     } else {
-      csign.value = "{\\r;" + eval(cmd);
+      csign.value = "{\\r;" + eval(cmd); // if someone tries to eval a return statement, give them a 'user manual' (rickroll)
     }
   } else if (callsignAsString == "What's the problem?" && easterEgg == true) {
     csign.value = "I think you know what the problem is just as well as I do.";
