@@ -138,16 +138,16 @@ window.addEventListener('beforeunload', () => {
 window.addEventListener('keypress', (event) => {
   if (event.key == "w") {
     if (location.href.includes("personnel-files")) {
-      location.href = "../unclass/personnel.html";
+      location.href = "../personnel.html";
     } else if (location.href.includes("divisions/")) {
-      location.href = "../unclass/divisions.html";
+      location.href = "../divisions.html";
     } else if (location.href.includes("unclass/index.html")) {
-      location.href = "../index.html";
+      location.href = "../../index.html";
     };
   };
   if (fileTS) {
     if (event.key == "s") {
-      location.href = "../unclass/" + fileTS;
+      location.href = "../" + fileTS;
     };
   };
 });
