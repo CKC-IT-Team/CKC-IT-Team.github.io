@@ -147,7 +147,7 @@ window.addEventListener('keypress', (event) => {
   };
   if (fileTS) {
     if (event.key == "s") {
-      location.href = "../" + fileTS;
+      location.href = "../unclass/" + fileTS;
     };
   };
 });
