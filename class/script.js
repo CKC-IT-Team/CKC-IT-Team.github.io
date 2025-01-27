@@ -4,6 +4,13 @@
 
 if (localStorage.getItem("regUser") == "UNCLEARED") {location.href = "../unclass/uncleared.html"};
 
+var notificationsRead = [];
+var notificationsTotal = 1;
+
+if (localStorage.getItem("notificationsRead")) {notificationsRead = localStorage.getItem("notificationsRead")} else {localStorage.setItem("notificationsRead", [])};
+
+if (document.getElementById("idrN")) {document.getElementById("idrN").textContent = notificationsTotal - notificationsRead.length}
+
 var clrcident = document.getElementById("clrcident"); //  get clearance ID in doc
 
 var fileTS;
@@ -130,6 +137,14 @@ function identMO(_, fTS) {
   // called directly from document
   fileTS = fTS;
 };
+function markAsRead(specifiedElement) {
+  notificationsRead.push(specifiedElement);
+  localStorage.setItem("notificationsRead", notificationsRead);
+}
+function markAsUnread(specifiedElement) {
+  if (notificationsRead[specifiedElement]) {notificationsRead.splice(specifiedElement)} else {console.warn("Attempted to mark as unread a message that has not yet been marked as read: " + specifiedElement)};
+  localStorage.setItem("notificationsRead", notificationsRead);
+}
 /*
 window.addEventListener('beforeunload', () => {
   sessionStorage.removeItem("clrc");
