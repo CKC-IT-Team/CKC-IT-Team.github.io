@@ -138,16 +138,20 @@ function identMO(_, fTS) {
   fileTS = fTS;
 };
 function markAsRead(specifiedElement) {
-  notificationsRead.push(specifiedElement);
+  if (!notificationsRead[specifiedElement]) {notificationsRead.push(specifiedElement)};
+  localStorage.removeItem("notificationsRead");
   localStorage.setItem("notificationsRead", notificationsRead);
-  specifiedElement.onclick = "markAsUnread(this)"
-  specifiedElement.style = "background-color: rgb(100, 10, 10);"
+  specifiedElement.onclick = "markAsUnread(this)";
+  specifiedElement.textContent = "Mark As Unread";
+  specifiedElement.style = "background-color: rgb(100, 10, 10);";
 }
 function markAsUnread(specifiedElement) {
-  if (notificationsRead[specifiedElement]) {notificationsRead.splice(specifiedElement)} else {console.warn("Attempted to mark as unread a message that has not yet been marked as read: " + specifiedElement)};
+  if (notificationsRead[specifiedElement]) {notificationsRead.splice(specifiedElement)};
+  localStorage.removeItem("notificationsRead");
   localStorage.setItem("notificationsRead", notificationsRead);
-  specifiedElement.onclick = "markAsRead(this)"
-  specifiedElement.style = "background-color: rgb(10, 100, 10);"
+  specifiedElement.onclick = "markAsRead(this)";
+  specifiedElement.textContent = "Mark As Read";
+  specifiedElement.style = "background-color: rgb(10, 100, 10);";
 }
 /*
 window.addEventListener('beforeunload', () => {
