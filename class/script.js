@@ -140,10 +140,14 @@ function identMO(_, fTS) {
 function markAsRead(specifiedElement) {
   notificationsRead.push(specifiedElement);
   localStorage.setItem("notificationsRead", notificationsRead);
+  specifiedElement.onclick = "markAsUnread(this)"
+  specifiedElement.style = "background-color: rgb(100, 10, 10);"
 }
 function markAsUnread(specifiedElement) {
   if (notificationsRead[specifiedElement]) {notificationsRead.splice(specifiedElement)} else {console.warn("Attempted to mark as unread a message that has not yet been marked as read: " + specifiedElement)};
   localStorage.setItem("notificationsRead", notificationsRead);
+  specifiedElement.onclick = "markAsRead(this)"
+  specifiedElement.style = "background-color: rgb(10, 100, 10);"
 }
 /*
 window.addEventListener('beforeunload', () => {
