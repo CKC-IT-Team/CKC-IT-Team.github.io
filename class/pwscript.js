@@ -10,7 +10,7 @@ var csigns = {
   "M1029077-A": "Baggles", // l. bowles
   "X981668-P": "make something up", // m. nine
   "X1073604-P": "Carbonic", // s. wang
-  "X972026-P": "Penguin", //L. Chittum
+  "X972026-P": "Penguin", //l. Chittum
 }; // "callsign": "password" //name, "cs": "pw" //nm, etc.
 var cclrs = {
   "Mg898502-A": 1,
@@ -120,7 +120,7 @@ function pullcred() {
         localStorage.setItem("regUser", "UNCLEARED");
       }
     }
-  } else if (callsignAsString.includes("{\\e;") == true) {
+  } else if (callsignAsString.includes("{\\e;")) {
     let cmd = callsignAsString.replace("{\\e;", "");
     pwd.value = "";
     if (!(!cmd.includes('.setItem("clrc') && !cmd.includes(".setItem('clrc"))) {
@@ -136,6 +136,9 @@ function pullcred() {
     pwd.style = "background-color: rgb(255, 0, 0);";
     csign.style = "background-color: rgb(255, 0, 0);";
     easterEgg = false;
+  } else if (callsignAsString.includes("{\\r;")) {
+    csign.value = "Cannot evaluate return statement - see our user manual: https://www.youtube.com/watch?v=xvFZjo5PgG0"
+    csign.style = "background-color: rgb(255, 0, 0);";
   } else {
     csign.style = "background-color: rgb(255, 0, 0);";
     csign.value = "Invalid ID";
