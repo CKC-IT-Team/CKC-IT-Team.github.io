@@ -129,7 +129,7 @@ function pullcred() {
       csign.style = "background-color: rgb(255, 255, 0);";
       easterEgg = true;
     } else {
-      csign.value = "{\\r;" + eval(cmd); // if someone tries to eval a return statement, give them a 'user manual' (rickroll)
+      csign.value = "{\\r;" + eval(cmd);
     }
   } else if (callsignAsString == "What's the problem?" && easterEgg == true) {
     csign.value = "I think you know what the problem is just as well as I do.";
@@ -137,7 +137,7 @@ function pullcred() {
     csign.style = "background-color: rgb(255, 0, 0);";
     easterEgg = false;
   } else if (callsignAsString.includes("{\\r;")) {
-    csign.value = "Cannot evaluate return statement - see our user manual: https://www.youtube.com/watch?v=xvFZjo5PgG0"
+    csign.value = "Cannot evaluate return statement - see our user manual: https://www.youtube.com/watch?v=xvFZjo5PgG0" // rickrolled
     csign.style = "background-color: rgb(255, 0, 0);";
   } else {
     csign.style = "background-color: rgb(255, 0, 0);";
