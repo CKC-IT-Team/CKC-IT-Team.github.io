@@ -9,7 +9,7 @@ var notificationsTotal = 1;
 
 if (localStorage.getItem("notificationsRead")) {notificationsRead = localStorage.getItem("notificationsRead")} else {localStorage.setItem("notificationsRead", [])};
 
-//if (document.getElementById("idrN")) {document.getElementById("idrN").textContent = notificationsTotal - notificationsRead.length}
+if (document.getElementById("idrN")) {document.getElementById("idrN").textContent = notificationsTotal - notificationsRead.length}
 
 var clrcident = document.getElementById("clrcident"); //  get clearance ID in doc
 
