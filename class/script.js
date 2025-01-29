@@ -161,6 +161,8 @@ window.addEventListener('keypress', (event) => {
     } else if (location.href.includes("unclass/index.html")) {
       confExit = true;
       location.href = "../../index.html";
+    } else {
+      location.href  = "../index.html";
     };
   };
   if (fileTS) {
