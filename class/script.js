@@ -9,7 +9,7 @@ var notificationsTotal = 1;
 
 if (localStorage.getItem("notificationsRead")) {notificationsRead = localStorage.getItem("notificationsRead")} else {localStorage.setItem("notificationsRead", [])};
 
-if (document.getElementById("idrN")) {document.getElementById("idrN").textContent = notificationsTotal - notificationsRead.length}
+//if (document.getElementById("idrN")) {document.getElementById("idrN").textContent = notificationsTotal - notificationsRead.length}
 
 var clrcident = document.getElementById("clrcident"); //  get clearance ID in doc
 
@@ -139,14 +139,14 @@ function identMO(_, fTS) {
   fileTS = fTS;
 };
 function markAsRead(specifiedElement) {
-  if (!notificationsRead[specifiedElement]) {notificationsRead.push(specifiedElement)};
+  if (!notificationsRead.find(specifiedElement)) {notificationsRead.push(specifiedElement)};
   localStorage.setItem("notificationsRead", notificationsRead);
   specifiedElement.onclick = "markAsUnread(this)";
   specifiedElement.textContent = "Mark As Unread";
   specifiedElement.style = "background-color: rgb(100, 10, 10);";
 }
 function markAsUnread(specifiedElement) {
-  if (notificationsRead[specifiedElement]) {notificationsRead.splice(specifiedElement)};
+  if (notificationsRead.find(specifiedElement)) {notificationsRead.splice(specifiedElement)};
   localStorage.setItem("notificationsRead", notificationsRead);
   specifiedElement.onclick = "markAsRead(this)";
   specifiedElement.textContent = "Mark As Read";

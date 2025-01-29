@@ -7,7 +7,7 @@
 <font size="12"><center>Crusty Krab Crew Bulletin</center></font><hr>
 Generally listed top to bottom in order of priority.
 <div class="cbx"><b> <!-- add one to script.js notificationsTotal -->
-    <button onload="if (localStorage.getItem('notificationsRead')[this]) {markAsRead(this)} else {markAsUnread(this)}" style="background-color: rgb(100, 100, 10);">ERROR</button><br>
+    <button onload="if (localStorage.getItem('notificationsRead').find(this)) {markAsRead(this)} else {markAsUnread(this)}" style="background-color: rgb(100, 100, 10);">ERROR</button><br>
     No Current Bulletin <!-- summary -->
     , <i>
     "N/A" <!-- operation nickname, etc. -->
