@@ -139,18 +139,18 @@ function identMO(_, fTS) {
   fileTS = fTS;
 };
 function markAsRead(specifiedElement) {
-  if (!notificationsRead.find(specifiedElement.id)) {notificationsRead.push(specifiedElement.id)};
-  localStorage.setItem("notificationsRead", notificationsRead);
   specifiedElement.onclick = "markAsUnread(this)";
   specifiedElement.textContent = "Mark As Unread";
   specifiedElement.style = "background-color: rgb(100, 10, 10);";
+  if (!notificationsRead.find(specifiedElement.id)) {notificationsRead.push(specifiedElement.id)};
+  localStorage.setItem("notificationsRead", notificationsRead);
 }
 function markAsUnread(specifiedElement) {
-  if (notificationsRead.find(specifiedElement.id)) {notificationsRead.splice(specifiedElement.id)};
-  localStorage.setItem("notificationsRead", notificationsRead);
   specifiedElement.onclick = "markAsRead(this)";
   specifiedElement.textContent = "Mark As Read";
   specifiedElement.style = "background-color: rgb(10, 100, 10);";
+  if (notificationsRead.find(specifiedElement.id)) {notificationsRead.splice(specifiedElement.id)};
+  localStorage.setItem("notificationsRead", notificationsRead);
 }
 window.addEventListener('keypress', (event) => {
   if (event.key == "w") {
