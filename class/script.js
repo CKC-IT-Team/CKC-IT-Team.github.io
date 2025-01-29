@@ -139,14 +139,14 @@ function identMO(_, fTS) {
   fileTS = fTS;
 };
 function markAsRead(specifiedElement) {
-  if (!notificationsRead.find(specifiedElement)) {notificationsRead.push(specifiedElement)};
+  if (!notificationsRead.find(specifiedElement.id)) {notificationsRead.push(specifiedElement.id)};
   localStorage.setItem("notificationsRead", notificationsRead);
   specifiedElement.onclick = "markAsUnread(this)";
   specifiedElement.textContent = "Mark As Unread";
   specifiedElement.style = "background-color: rgb(100, 10, 10);";
 }
 function markAsUnread(specifiedElement) {
-  if (notificationsRead.find(specifiedElement)) {notificationsRead.splice(specifiedElement)};
+  if (notificationsRead.find(specifiedElement.id)) {notificationsRead.splice(specifiedElement.id)};
   localStorage.setItem("notificationsRead", notificationsRead);
   specifiedElement.onclick = "markAsRead(this)";
   specifiedElement.textContent = "Mark As Read";
