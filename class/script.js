@@ -13,6 +13,7 @@ if (document.getElementById("idrN")) {document.getElementById("idrN").textConten
 
 var clrcident = document.getElementById("clrcident"); //  get clearance ID in doc
 
+var confExit = false;
 var fileTS;
 
 var clearance_dict = [
@@ -139,7 +140,6 @@ function identMO(_, fTS) {
 };
 function markAsRead(specifiedElement) {
   if (!notificationsRead[specifiedElement]) {notificationsRead.push(specifiedElement)};
-  localStorage.removeItem("notificationsRead");
   localStorage.setItem("notificationsRead", notificationsRead);
   specifiedElement.onclick = "markAsUnread(this)";
   specifiedElement.textContent = "Mark As Unread";
@@ -147,17 +147,11 @@ function markAsRead(specifiedElement) {
 }
 function markAsUnread(specifiedElement) {
   if (notificationsRead[specifiedElement]) {notificationsRead.splice(specifiedElement)};
-  localStorage.removeItem("notificationsRead");
   localStorage.setItem("notificationsRead", notificationsRead);
   specifiedElement.onclick = "markAsRead(this)";
   specifiedElement.textContent = "Mark As Read";
   specifiedElement.style = "background-color: rgb(10, 100, 10);";
 }
-/*
-window.addEventListener('beforeunload', () => {
-  sessionStorage.removeItem("clrc");
-});
-*/
 window.addEventListener('keypress', (event) => {
   if (event.key == "w") {
     if (location.href.includes("personnel-files")) {
@@ -165,6 +159,7 @@ window.addEventListener('keypress', (event) => {
     } else if (location.href.includes("divisions/")) {
       location.href = "../divisions.html";
     } else if (location.href.includes("unclass/index.html")) {
+      confExit = true;
       location.href = "../../index.html";
     };
   };
@@ -174,3 +169,6 @@ window.addEventListener('keypress', (event) => {
     };
   };
 });
+window.onbeforeunload = function() {
+  if (confExit) {confExit = false;return "Confirm quick sign-off?"}
+}
