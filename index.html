@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
     <link href="unclass/pgstyle.css" rel="stylesheet">
+    <style>body {background-image: url('/unclass/bkg/bkgli.gif');}</style>
 <font size="6">
 <center>
-<div style="height: 80%; width: 80%; background-color: rgb(10, 10, 10);">
+<div style="width: 80%; background-color: rgb(10, 10, 10); vertical-align: middle;">
     <font size="12">Enter Credentials</font><br>
     <form>
         <label for="csgn">Callsign</label><br>
@@ -12,12 +13,12 @@
         <input type="password" id="pwd" name="pwd" style="color: black;"><br>
         <input type="button" value="Return Credentials" onclick="pullcred()" style="color: black;" id="fbt"><br>
     </form>
+    <b>RECENT: Your callsigns have been changed. The numerical section of your callsign is now your S-Number.</b><br>
+    Contact s981822@student.knoxschools.org (database admin) or s977168@student.knoxschools.org (technician) if needed.
+    <br>
+    <b>By using this live-service database you agree to the terms of our <a href="LICENSE.md">licensing</a>.</b> If you would rather not agree to our licensing, you should stop here and consult a technician as seen above.
 </div>
 </center>
 </font>
-<b>RECENT: Your callsigns have been changed. The numerical section of your callsign is now your S-Number.</b><br>
-Contact s981822@student.knoxschools.org (database admin) or s977168@student.knoxschools.org (technician) if needed.
-<br>
-<b>By using this live-service database you agree to the terms of our <a href="LICENSE.md">licensing</a>.</b> If you would rather not agree to our licensing, you should stop here and consult a technician as seen above.
 <script src="./class/pwscript.js"></script>
 </html>
