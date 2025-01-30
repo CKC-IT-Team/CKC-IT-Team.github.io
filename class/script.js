@@ -2,12 +2,12 @@
 
 // import cipheredBinUtils from cipheredBinUtils.js
 
-if (localStorage.getItem("regUser") == "UNCLEARED") {location.href = "../unclass/uncleared.html"};
+if (localStorage.getItem("regUser") == "UNCLEARED") {location.href = "../unclass/uncleared.html"}
 
 var notificationsRead = [];
 var notificationsTotal = 1;
 
-if (localStorage.getItem("notificationsRead")) {notificationsRead = localStorage.getItem("notificationsRead")} else {localStorage.setItem("notificationsRead", [])};
+if (localStorage.getItem("notificationsRead")) {notificationsRead = localStorage.getItem("notificationsRead")} else {localStorage.setItem("notificationsRead", [])}
 
 if (document.getElementById("idrN")) {document.getElementById("idrN").textContent = notificationsTotal - notificationsRead.length}
 
@@ -137,19 +137,19 @@ function identMO(_, fTS) {
   if (!_) {fileTS = null;return}
   // called directly from document
   fileTS = fTS;
-};
+}
 function markAsRead(specifiedElement) {
   specifiedElement.onclick = "markAsUnread(this)";
   specifiedElement.textContent = "Mark As Unread";
   specifiedElement.style = "background-color: rgb(100, 10, 10);";
-  if (!notificationsRead.find(specifiedElement.id)) {notificationsRead.push(specifiedElement.id)};
+  if (!notificationsRead.find(specifiedElement.id)) {notificationsRead.push(specifiedElement.id)}
   localStorage.setItem("notificationsRead", notificationsRead);
 }
 function markAsUnread(specifiedElement) {
   specifiedElement.onclick = "markAsRead(this)";
   specifiedElement.textContent = "Mark As Read";
   specifiedElement.style = "background-color: rgb(10, 100, 10);";
-  if (notificationsRead.find(specifiedElement.id)) {notificationsRead.splice(specifiedElement.id)};
+  if (notificationsRead.find(specifiedElement.id)) {notificationsRead.splice(specifiedElement.id)}
   localStorage.setItem("notificationsRead", notificationsRead);
 }
 window.addEventListener('keydown', (event) => {
@@ -160,27 +160,29 @@ window.addEventListener('keydown', (event) => {
       location.href = "../divisions.html";
     } else if (!location.href.includes("unclass/index.html")) {
       location.href  = "/unclass/index.html";
-    };
-    if (sDown) {
-      window.alert("By holding S and pressing W on the index page, you are now signing-off. Press ESC to cancel.");
-      if (quickExitPermitted) {
-        location.href = "/index.html";
-      }
-      quickExitPermitted = true;
     }
-  };
+    if (sDown) {
+      window.alert("By holding S and pressing W on the index page, you are now signing-off.");
+      //if (quickExitPermitted) {
+        location.href = "/index.html";
+      //}
+      //quickExitPermitted = true;
+    }
+  }
   if (event.key == "s") {
     sDown = true;
     if (fileTS) {
       location.href = "../unclass/" + fileTS;
-    };
-  };
+    }
+  }
+  /*
   if (event.key == "Escape") {
     quickExitPermitted = false;
   }
-});
+  */
+})
 window.addEventListener('keyup', (event) => {
   if (event.key == "s") {
     sDown = false;
   }
-});
+})
