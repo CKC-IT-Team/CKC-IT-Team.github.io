@@ -165,9 +165,8 @@ window.addEventListener('keydown', (event) => {
       window.alert("By holding S and pressing W on the index page, you are now signing-off. Press ESC to cancel.");
       if (quickExitPermitted) {
         location.href = "/index.html";
-      } else {
-        quickExitPermitted = true;
       }
+      quickExitPermitted = true;
     }
   };
   if (event.key == "s") {
@@ -176,7 +175,7 @@ window.addEventListener('keydown', (event) => {
       location.href = "../unclass/" + fileTS;
     };
   };
-  if (event.keyCode == 27) {
+  if (event.key == "Escape") {
     quickExitPermitted = false;
   }
 });
