@@ -12,9 +12,8 @@ if (localStorage.getItem("notificationsRead")) {notificationsRead = localStorage
 if (document.getElementById("idrN")) {document.getElementById("idrN").textContent = notificationsTotal - notificationsRead.length}
 
 var clrcident = document.getElementById("clrcident"); //  get clearance ID in doc
-
-var confExit = false;
 var fileTS;
+var debounce_W = false;
 
 var clearance_dict = [
   "ALPHA",
@@ -152,14 +151,15 @@ function markAsUnread(specifiedElement) {
   if (notificationsRead.find(specifiedElement.id)) {notificationsRead.splice(specifiedElement.id)};
   localStorage.setItem("notificationsRead", notificationsRead);
 }
-window.addEventListener('keypress', (event) => {
+window.addEventListener('keydown', (event) => {
   if (event.key == "w") {
+    debounce_W = true;
     if (location.href.includes("personnel-files")) {
       location.href = "../personnel.html";
     } else if (location.href.includes("divisions/")) {
       location.href = "../divisions.html";
     } else if (location.href.includes("unclass/index.html")) {
-      confExit = true;
+      window.alert("Confirm quick sign-off?")
       location.href = "../../index.html";
     } else {
       location.href  = "../index.html";
@@ -171,6 +171,8 @@ window.addEventListener('keypress', (event) => {
     };
   };
 });
-window.onbeforeunload = function() {
-  if (confExit) {confExit = false;return "Confirm quick sign-off?"}
-}
+window.addEventListener('keyup', (event) => {
+  if (event.key == "w") {
+    debounce_W = false;
+  };
+});
