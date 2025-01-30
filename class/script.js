@@ -13,7 +13,8 @@ if (document.getElementById("idrN")) {document.getElementById("idrN").textConten
 
 var clrcident = document.getElementById("clrcident"); //  get clearance ID in doc
 var fileTS;
-var debounce_W = false;
+var debounce_W = sessionStorage.getItem("debounceW") || false;
+if (!debounce_W) {sessionStorage.setItem("debounceW", false)}
 
 var clearance_dict = [
   "ALPHA",
@@ -153,16 +154,19 @@ function markAsUnread(specifiedElement) {
 }
 window.addEventListener('keydown', (event) => {
   if (event.key == "w") {
-    debounce_W = true;
-    if (location.href.includes("personnel-files")) {
-      location.href = "../personnel.html";
-    } else if (location.href.includes("divisions/")) {
-      location.href = "../divisions.html";
-    } else if (location.href.includes("unclass/index.html")) {
-      window.alert("Confirm quick sign-off?")
-      location.href = "../../index.html";
-    } else {
-      location.href  = "../index.html";
+    if (!debounce_W) {
+      debounce_W = true;
+      sessionStorage.setItem("debounceW", true);
+      if (location.href.includes("personnel-files")) {
+        location.href = "../personnel.html";
+      } else if (location.href.includes("divisions/")) {
+        location.href = "../divisions.html";
+      } else if (location.href.includes("unclass/index.html")) {
+        window.alert("Confirm quick sign-off?")
+        location.href = "../../index.html";
+      } else {
+        location.href  = "../index.html";
+      };
     };
   };
   if (fileTS) {
@@ -174,5 +178,6 @@ window.addEventListener('keydown', (event) => {
 window.addEventListener('keyup', (event) => {
   if (event.key == "w") {
     debounce_W = false;
+    sessionStorage.setItem("debounceW", false);
   };
 });
