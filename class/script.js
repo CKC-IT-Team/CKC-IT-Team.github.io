@@ -161,16 +161,16 @@ window.addEventListener('keydown', (event) => {
         location.href = "../personnel.html";
       } else if (location.href.includes("divisions/")) {
         location.href = "../divisions.html";
-      } else if (location.href.includes("unclass/index.html")) {
-        window.alert("Confirm quick sign-off?")
-        location.href = "../../index.html";
       } else {
         location.href  = "../index.html";
       };
     };
   };
-  if (fileTS) {
-    if (event.key == "s") {
+  if (event.key == "s") {
+    if (location.href.includes("unclass/index.html")) {
+      if (debounce_W) {window.alert("By holding W and pressing S on the index page, you are now signing-off.");location.href = "../../index.html";}
+    }
+    if (fileTS) {
       location.href = "../unclass/" + fileTS;
     };
   };
