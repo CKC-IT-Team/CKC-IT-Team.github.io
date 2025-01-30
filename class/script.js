@@ -13,7 +13,8 @@ if (document.getElementById("idrN")) {document.getElementById("idrN").textConten
 
 var clrcident = document.getElementById("clrcident"); //  get clearance ID in doc
 var fileTS;
-var debounce_W = false;
+var sDown = false;
+var quickExitPermitted = true;
 
 var clearance_dict = [
   "ALPHA",
@@ -153,28 +154,34 @@ function markAsUnread(specifiedElement) {
 }
 window.addEventListener('keydown', (event) => {
   if (event.key == "w") {
-    if (!debounce_W) {
-      debounce_W = true;
-      if (location.href.includes("personnel-files")) {
-        location.href = "../personnel.html";
-      } else if (location.href.includes("divisions/")) {
-        location.href = "../divisions.html";
-      } else {
-        location.href  = "/unclass/index.html";
-      };
+    if (location.href.includes("personnel-files")) {
+      location.href = "../personnel.html";
+    } else if (location.href.includes("divisions/")) {
+      location.href = "../divisions.html";
+    } else if (!location.href.includes("unclass/index.html")) {
+      location.href  = "/unclass/index.html";
     };
+    if (sDown) {
+      window.alert("By holding S and pressing W on the index page, you are now signing-off. Press ESC to cancel.");
+      if (quickExitPermitted) {
+        location.href = "/index.html";
+      } else {
+        quickExitPermitted = true;
+      }
+    }
   };
   if (event.key == "s") {
-    if (location.href.includes("unclass/index.html")) {
-      if (debounce_W) {window.alert("By holding W and pressing S on the index page, you are now signing-off.");location.href = "/index.html";}
-    }
+    sDown = true;
     if (fileTS) {
       location.href = "../unclass/" + fileTS;
     };
   };
+  if (event.keyCode == 27) {
+    quickExitPermitted = false;
+  }
 });
 window.addEventListener('keyup', (event) => {
-  if (event.key == "w") {
-    debounce_W = false;
-  };
+  if (event.key == "s") {
+    sDown = false;
+  }
 });
