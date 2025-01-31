@@ -2,6 +2,17 @@
 
 // import cipheredBinUtils from cipheredBinUtils.js
 
+var csigns = {
+  "Mg898502-A": null, // s. pilipovic
+  "C981822-IT-A": "itech", // yello
+  "C977168-IT-LA": "itech", // b. bashford
+  "C1034772-IT": "itech", // l. avery-quinn
+  "M1029077-A": "mcorps", // l. bowles
+  "X981668-P": null, // m. nine
+  "X1073604-P": null, // s. wang
+  "X972026-P": null, //l. Chittum
+}; // "callsign": "division" //name, "cs": "dv" //nm, etc.
+
 if (localStorage.getItem("regUser") == "UNCLEARED") {location.href = "../unclass/uncleared.html"}
 
 var notificationsRead = [];
@@ -173,6 +184,18 @@ window.addEventListener('keydown', (event) => {
     sDown = true;
     if (fileTS) {
       location.href = "../unclass/" + fileTS;
+    } else if (location.href.includes("bulletin")) {
+      if (csigns[localStorage.getItem("regUser")]) {
+        location.href = location.href + "#" + csigns[localStorage.getItem("regUser")];
+      } else {
+        window.alert("User not listed as part of a division - cannot view division bulletins");
+      }
+    } else if (location.href.includes("divisions.html")) {
+      if (csigns[localStorage.getItem("regUser")]) {
+        location.href = "/unclass/divisions/" + csigns[localStorage.getItem("regUser")] + ".html"
+      } else {
+        window.alert("User not listed as part of a division - cannot view divsion page")
+      }
     }
   }
   /*
