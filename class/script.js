@@ -186,9 +186,7 @@ window.addEventListener('keydown', (event) => {
       location.href = "../unclass/" + fileTS;
     } else if (location.href.includes("bulletin")) {
       if (csigns[localStorage.getItem("regUser")]) {
-        if (!location.href.includes(csigns[localStorage.getItem("regUser")])) {
-          location.href = location.href + "#" + csigns[localStorage.getItem("regUser")];
-        }
+        location.href = "/unclass/bulletin.html" + "#" + csigns[localStorage.getItem("regUser")];
       } else {
         window.alert("User not listed as part of a division - cannot view division bulletins");
       }
