@@ -209,3 +209,15 @@ window.addEventListener('keyup', (event) => {
     sDown = false;
   }
 })
+window.onload = function() { inactivityTime() };
+var inactivityTime = function () {
+  var t;
+  window.onload = resetTimer;
+  document.onmousemove = resetTimer;
+  document.onkeypress = resetTimer;
+  function logoff() {window.alert("You have been logged out due to inactivity");location.href = "/index.html"}
+            function resetTimer() {
+                clearTimeout(t);
+                t = setTimeout(logoff, 60000)
+            }
+        }
