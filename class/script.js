@@ -2,6 +2,10 @@
 
 // import cipheredBinUtils from cipheredBinUtils.js
 
+var t = Date.getTime();
+
+const deadTime = 60000;
+
 var csigns = {
   "Mg898502-A": null, // s. pilipovic
   "C981822-IT-A": "itech", // yello
@@ -101,6 +105,18 @@ if (clearance_dict[clearance_dict.length - clev] != undefined) {
   // location.href = "../uncleared.html" // handle for removal of unathorized viewership. disabled
 }
 
+function checkTimeout() {
+  if (t < Date.getTime() + deadTime) {
+    window.alert("Your session has timed out; logging out now");
+    location.href = "/index.html";
+    // sucessfully timed out
+    // unsuccessful timeout
+    console.warn("FAILED TO CLEAR TIMEOUT!");
+    localStorage.setItem("regUser", "UNCLEARED");
+    location.href = "/unclass/uncleared.html";
+  } else {t = Date.getTime();}
+}
+
 var maxTimeout = 2;
 function attemptRSC(timeout, spec, specShow) {
   let tO = timeout || 0;
@@ -164,6 +180,7 @@ function markAsUnread(specifiedElement) {
   localStorage.setItem("notificationsRead", notificationsRead);
 }
 window.addEventListener('keydown', (event) => {
+  checkTimeout();
   if (event.key == "w") {
     if (location.href.includes("personnel-files")) {
       location.href = "../personnel.html";
@@ -194,7 +211,7 @@ window.addEventListener('keydown', (event) => {
       if (csigns[localStorage.getItem("regUser")]) {
         location.href = "/unclass/divisions/" + csigns[localStorage.getItem("regUser")] + ".html"
       } else {
-        window.alert("User not listed as part of a division - cannot view divsion page")
+        window.alert("User not listed as part of a division - cannot view divsion page");
       }
     }
   }
@@ -205,19 +222,11 @@ window.addEventListener('keydown', (event) => {
   */
 })
 window.addEventListener('keyup', (event) => {
+  checkTimeout();
   if (event.key == "s") {
     sDown = false;
   }
 })
-window.onload = function() { inactivityTime() };
-var inactivityTime = function () {
-  var t;
-  window.onload = resetTimer;
-  document.onmousemove = resetTimer;
-  document.onkeypress = resetTimer;
-  function logoff() {window.alert("You have been logged out due to inactivity");location.href = "/index.html"}
-            function resetTimer() {
-                clearTimeout(t);
-                t = setTimeout(logoff, 60000)
-            }
-        }
+window.addEventListener('mousemove', () => {
+  checkTimeout();
+})
