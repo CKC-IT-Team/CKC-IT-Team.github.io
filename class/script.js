@@ -2,7 +2,7 @@
 
 // import cipheredBinUtils from cipheredBinUtils.js
 
-var t = Date.getTime();
+var t = Date.now();
 
 const deadTime = 60000;
 
@@ -106,7 +106,7 @@ if (clearance_dict[clearance_dict.length - clev] != undefined) {
 }
 
 function checkTimeout() {
-  if (t < Date.getTime() + deadTime) {
+  if (t < Date.now() + deadTime) {
     window.alert("Your session has timed out; logging out now");
     location.href = "/index.html";
     // sucessfully timed out
