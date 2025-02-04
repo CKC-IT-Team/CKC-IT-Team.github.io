@@ -193,7 +193,7 @@ window.addEventListener('keydown', (event) => {
       location.href  = "/unclass/index.html";
     }
     if (sDown) {
-      window.alert("By holding S and pressing W on the index page, you are now signing-off.");
+      window.alert("By holding S and pressing W, you are now signing-off.");
       //if (quickExitPermitted) {
         location.href = "/index.html";
       //}
