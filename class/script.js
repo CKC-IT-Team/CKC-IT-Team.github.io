@@ -12,7 +12,7 @@ var csigns = {
   "C977168-IT-LA": "itech", // b. bashford
   "C1034772-IT": "itech", // l. avery-quinn
   "M1029077-A": "mcorps", // l. bowles
-  "X981668-P": null, // m. nine
+  "M981668-LA": "mcorps", // m. nine
   "X1073604-P": null, // s. wang
   "X972026-P": null, //l. Chittum
 }; // "callsign": "division" //name, "cs": "dv" //nm, etc.
