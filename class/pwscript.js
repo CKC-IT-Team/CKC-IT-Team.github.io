@@ -18,7 +18,7 @@ var cclrs = {
   "C977168-IT-LA": 5,
   "C1034772-IT": 10,
   "M1029077-A": 2,
-  "M981668-LA": 3, // to be determined by job assignment
+  "M981668-LA": 3,
   "X1073604-P": null, // to be determined by job assignment
   "X972026-P": null, // to be determined by job assignment
 }; // "callsign": numerical clrclv, etc. see script.js for nclrclv translations
