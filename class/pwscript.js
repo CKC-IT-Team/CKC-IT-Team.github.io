@@ -67,7 +67,7 @@ function pullcred() {
 
   if (cInfo.csigns[callsignAsString]) {
     //is the callsign valid
-    if (btoa(cInfo.csigns[callsignAsString]) == passwordAsString) {
+    if (atob(cInfo.csigns[callsignAsString]) == passwordAsString) {
       //is the password correct
       let clearanceLevel = cInfo.cclrs[callsignAsString];
       if (
