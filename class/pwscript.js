@@ -3,14 +3,14 @@
 //import * as cInfo from '../hc/class.js'
 
 var csigns = {
-  "Mg898502-A": "CKC_Leader", // s. pilipovic
-  "C981822-IT-A": "(UniforM)", // yello
-  "C977168-IT-LA": "Bitchin8675309", // b. bashford
-  "C1034772-IT": "Hawktuah18", // l. avery-quinn
-  "M1029077-A": "Baggles", // l. bowles
-  "M981668-LA": "make something up", // m. nine
-  "X1073604-P": "Carbonic", // s. wang
-  "X972026-P": "Penguin", //l. Chittum
+  "Mg898502-A": "Q0tDX0xlYWRlcg==", // s. pilipovic
+  "C981822-IT-A": "KFVuaWZvck0p", // yello
+  "C977168-IT-LA": "Qml0Y2hpbjg2NzUzMDk=", // b. bashford
+  "C1034772-IT": "SGF3a3R1YWgxOA==", // l. avery-quinn
+  "M1029077-A": "QmFnZ2xlcw==", // l. bowles
+  "M981668-LA": "bWFrZSBzb21ldGhpbmcgdXA=", // m. nine
+  "X1073604-P": "Q2FyYm9uaWM=", // s. wang
+  "X972026-P": "UGVuZ3Vpbg==", //l. Chittum
 }; // "callsign": "password" //name, "cs": "pw" //nm, etc.
 var cclrs = {
   "Mg898502-A": 1,
@@ -67,7 +67,7 @@ function pullcred() {
 
   if (cInfo.csigns[callsignAsString]) {
     //is the callsign valid
-    if (cInfo.csigns[callsignAsString] == passwordAsString) {
+    if (btoa(cInfo.csigns[callsignAsString]) == passwordAsString) {
       //is the password correct
       let clearanceLevel = cInfo.cclrs[callsignAsString];
       if (
