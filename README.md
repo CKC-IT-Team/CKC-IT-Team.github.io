@@ -1,7 +1,7 @@
-Double click 'index.html'. should be apparent from there
+webhosting universal; not intended for offline use.
 universal edition
-12.5.24
+3.27.25
 
 Read our license!
 
-v2.2.1P1
+v2.261
