@@ -107,7 +107,6 @@ if (clearance_dict[clearance_dict.length - clev] != undefined) {
 
 function checkTimeout() {
   return null;
-  /*
   if (t < Date.now() + deadTime) {
     window.alert("Your session has timed out; logging out now");
     location.href = "/index.html";
@@ -116,8 +115,7 @@ function checkTimeout() {
     console.warn("FAILED TO CLEAR TIMEOUT!");
     localStorage.setItem("regUser", "UNCLEARED");
     location.href = "/unclass/uncleared.html";
-  } else {t = Date.getTime();}
-  */
+  } else {t = Date.now();}
 }
 
 var maxTimeout = 2;
