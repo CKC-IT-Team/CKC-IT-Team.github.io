@@ -19,6 +19,8 @@ var csigns = {
 
 if (localStorage.getItem("regUser") == "UNCLEARED") {location.href = "../unclass/uncleared.html"}
 
+sessionStorage.setItem("userCS", csigns[localStorage.getItem("regUser")])
+
 var notificationsRead = [];
 var notificationsTotal = 1;
 
