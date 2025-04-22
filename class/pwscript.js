@@ -3,15 +3,15 @@
 //import * as cInfo from '../hc/class.js'
 
 var csigns = {
-  "Mg898502-A": "Q0tDX0xlYWRlcg==", // s. pilipovic
-  "C981822-IT-A": "KFVuaWZvck0p", // yello
-  "C977168-IT-LA": "Qml0Y2hpbjg2NzUzMDk=", // b. bashford
-  "C1034772-IT": "SGF3a3R1YWgxOA==", // l. avery-quinn
-  "M1029077-A": "QmFnZ2xlcw==", // l. bowles
-  "M981668-LA": "bWFrZSBzb21ldGhpbmcgdXA=", // m. nine
-  "X1073604-P": "Q2FyYm9uaWM=", // s. wang
-  "X972026-P": "UGVuZ3Vpbg==", //l. Chittum
-}; // "callsign": "password" //name, "cs": "pw" //nm, etc.
+  "Mg898502-A": "Q0tDX0xlYWRlcg==",
+  "C981822-IT-A": "KFVuaWZvck0p",
+  "C977168-IT-LA": "Qml0Y2hpbjg2NzUzMDk=",
+  "C1034772-IT": "SGF3a3R1YWgxOA==",
+  "M1029077-A": "QmFnZ2xlcw==",
+  "M981668-LA": "bWFrZSBzb21ldGhpbmcgdXA=",
+  "X1073604-P": "Q2FyYm9uaWM=",
+  "X972026-P": "UGVuZ3Vpbg==",
+}; // "callsign": "password", "cs": "pw", etc.
 var cclrs = {
   "Mg898502-A": 1,
   "C981822-IT-A": 1,
@@ -21,41 +21,12 @@ var cclrs = {
   "M981668-LA": 3,
   "X1073604-P": null, // to be determined by job assignment
   "X972026-P": null, // to be determined by job assignment
-}; // "callsign": numerical clrclv, etc. see script.js for nclrclv translations
+}; // "callsign": numerical clrclv, etc.
 var cInfo = { csigns, cclrs };
 
 var easterEgg = false;
 var timesWrong = 0;
 var maxTimesWrong = 1;
-
-/*
-var binCipherParamsPerCLRC = {
-    1: {"flipInterval":2, "shiftInterval":6},
-    2: {"flipInterval":4, "shiftInterval":3},
-    3: {"flipInterval":5, "shiftInterval":1},
-    4: {"flipInterval":3, "shiftInterval":0},
-    5: {"flipInterval":1, "shiftInterval":2},
-    6: {"flipInterval":10, "shiftInterval":4},
-    7: {"flipInterval":7, "shiftInterval":3},
-    8: {"flipInterval":8, "shiftInterval":8},
-    9: {"flipInterval":4, "shiftInterval":2},
-    10: {"flipInterval":9, "shiftInterval":3},
-    11: {"flipInterval":2, "shiftInterval":1},
-    12: {"flipInterval":1, "shiftInterval":6},
-    13: {"flipInterval":2, "shiftInterval":7},
-    14: {"flipInterval":9, "shiftInterval":6},
-    15: {"flipInterval":4, "shiftInterval":6},
-    16: {"flipInterval":5, "shiftInterval":6},
-    17: {"flipInterval":3, "shiftInterval":6},
-    18: {"flipInterval":9, "shiftInterval":5},
-    19: {"flipInterval":3, "shiftInterval":2},
-    20: {"flipInterval":5, "shiftInterval":7},
-    21: {"flipInterval":6, "shiftInterval":6},
-    22: {"flipInterval":9, "shiftInterval":1},
-    23: {"flipInterval":4, "shiftInterval":7},
-    24: {"flipInterval":1, "shiftInterval":4}
-};
-currently unused nonstandard ES keys */
 
 var csign = document.getElementById("csgn");
 var pwd = document.getElementById("pwd");
